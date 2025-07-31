@@ -1,0 +1,117 @@
+@import url('../asn.scss');
+
+.open {
+    border-radius: 30px;
+    border: 1px solid rgba(27, 132, 255, 0.2);
+    width: 80px;
+    height: 22px;
+    padding: 0 6px; 
+    color: #056EE9;
+    display: flex;
+    align-items: center;
+background-color: rgba(239, 246, 255, 1);
+    justify-content: center;
+    position: relative;
+    font-size: 12px;
+    gap: 5px; 
+    font-size: 11px !important;
+}
+
+.open::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background-color: #1B84FF;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+
+.approved{
+    border-radius: 30px;
+    border: 1px solid rgba(23, 198, 83, 0.2);
+    width: 80px;
+    height: 22px;
+    padding: 0 6px; 
+    color: #04B440;
+    background-color: #EAFFF1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 12px;
+    gap: 5px; 
+    font-size: 11px !important;
+}
+
+.approved::before{
+    content: "";
+    width: 5px;
+    height: 5px;
+    background-color: #17C653;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.reject{
+    border-radius: 30px;
+    border: 1px solid rgba(248, 40, 90, 0.2);
+    width: 80px;
+    height: 22px;
+    padding: 0 6px; 
+    color: #D81A48;
+    display: flex;
+    background-color: #FFEEF3;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 12px;
+    gap: 5px; 
+    font-size: 11px !important;
+}
+
+.reject::before{
+    content: "";
+    width: 5px;
+    height: 5px;
+    background-color: #F8285A;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.eye{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+}
+::ng-deep .ng-select.ng-select-single .ng-select-container {
+    height: 30px !important;
+  }
+  
+  ::ng-deep .ng-select .ng-select-container {
+    color: #333;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    min-height: 30px !important;
+    align-items: center;
+    font-size: 12px;
+  }
+  
+  ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    white-space: nowrap;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  ::ng-deep .ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container{
+    border-color: #ced4da !important;
+    box-shadow: none !important;
+  }
+  

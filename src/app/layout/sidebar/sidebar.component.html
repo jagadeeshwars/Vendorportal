@@ -1,0 +1,62 @@
+<div class="sidebar-content">
+  <div class="sidebar-header mb-4">
+    <img src="/assets/img/LEDL-logo_circle.svg" class="cicle-logo"
+      [class.center-logo]="isSidebarCollapsed && !isHovering" />
+    <img src="/assets/img/LEDL-Text-img.svg" class="text-logo" [class.d-none1]="isSidebarCollapsed && !isHovering" />
+    <button class="btn-b mob-hide" (click)="toggleSidebar()">
+      <span class="bxs--arrow-to-left"></span>
+    </button>
+    <button class="btn-b lap-hide" (click)="closeSidebar()">
+      <span class="bxs--arrow-to-left"></span>
+    </button>
+  </div>
+
+  <div (mouseenter)="hoverSidebar()" (mouseleave)="unhoverSidebar()" class="menu-flow">
+    <div *ngFor="let menuItem of menu" class="mb-3">
+      <div class="menu-group">
+
+        <div class="main-menu" (click)="menuItem.submenu ? toggleMain(menuItem) : navigate(menuItem.route)" [ngClass]="{
+               'no-submenu-active': !menuItem.submenu && isActiveRoute(menuItem.route)
+             }">
+
+          <span class="{{ menuItem.icon }}" [class.active]="isActiveRoute(menuItem.route)"></span>
+
+          <span class="title" [class.d-none1]="isSidebarCollapsed && !isHovering">
+            {{ menuItem.title }}
+          </span>
+
+          <span class="expand-icon ms-auto" style="font-size: 18px"
+            *ngIf="menuItem.submenu && !menuItem.expanded && (isSidebarCollapsed && isHovering || !isSidebarCollapsed)">
+            +
+          </span>
+          <span 
+          *ngIf="menuItem.submenu && menuItem.expanded && (isSidebarCollapsed && isHovering || !isSidebarCollapsed)"
+          class="collapse-icon ms-auto" style="font-size: 20px">-</span>
+        </div>
+
+        <!-- Submenu block -->
+        <div *ngIf="menuItem.submenu && menuItem.expanded" class="submenu-wrapper"
+          [class.d-none1]="isSidebarCollapsed && !isHovering">
+
+          <!-- <div class="submenu-title" (click)="toggleSub(menuItem)">
+            <span class="title">{{ menuItem.submenu.title }}</span>
+            <span class="collapse-icon" style="font-size: 20px">-</span>
+          </div> -->
+
+          <div class="white-line">
+            <div *ngFor="let item of menuItem.submenu.items" class="submenu-item"
+              [class.active]="isActiveRoute(item.route)" (click)="navigate(item.route)">
+
+              <span [class.dot]="isActiveRoute(item.route)"></span>
+              <span class="{{ item.icon }}" [class.active]="isActiveRoute(item.route)"></span>
+              <span class="name">{{ item.name }}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

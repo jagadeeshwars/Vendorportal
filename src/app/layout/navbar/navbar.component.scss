@@ -1,0 +1,164 @@
+.header {
+  display: flex;
+  align-items: center;
+  width:100%;
+}
+
+@media (min-width: 969px) {
+  .mdi--hamburger-open {
+    display: none;
+  }
+}
+
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px 11px;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.breadcrumb-item {
+  color: #6c757d;
+  /* gray color for links */
+  font-weight: 500;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  content: ">";
+  display: inline-block;
+  padding: 0 8px;
+  color: #6c757d;
+}
+
+.breadcrumb-item a {
+  color: #4B5675;
+  /* Bootstrap primary blue */
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: none;
+}
+
+
+.breadcrumb-item.active {
+  color: #203876;
+  /* dark color */
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.right-section {
+  position: relative;
+}
+
+.profile-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.msg {
+  height: 25px;
+  width: 25px;
+  background-position: center;
+  background: #fff;
+  border: none;
+  background-image: url(../../../../public/assets/img/messages.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.show {
+  height: 23px;
+  width: 23px;
+  border: none;
+  background-position: center;
+  background: #fff;
+  background-image: url(../../../../public/assets/img/Union.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 50px; // adjust based on your layout
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  z-index: 1000;
+  width: 200px;
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-pic-lg {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.user-name {
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.logout-btn {
+  background: transparent;
+  color: #000000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (min-width: 969px) {
+  .mdi--hamburger-open {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .msg{
+    display: none;
+  }
+  .show{
+    display: none;
+  }
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px 11px;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+.border-bottom {
+ width: 100%;
+ padding: 0rem;
+  border:1px solid #dfdfdf !important
+}.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* space between icon and text */
+}
