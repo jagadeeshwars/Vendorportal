@@ -1,0 +1,121 @@
+@import url('../asn.scss');
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+     color: #212529;
+    text-align: center;
+    white-space: nowrap;
+	 background-color: transparent;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+	border-left:1px solid transparent;
+}
+.line-input {
+	border: 1px solid #e0d5d5;
+	border-radius: 5px;
+	height: 25px;
+	width: 101px;
+  }
+  
+  .line-input:focus {
+	border: 1px solid #e0d5d5;
+	border-radius: 5px;
+	outline: none;
+  }
+  
+  .line-input1 {
+	border: 1px solid transparent;
+	border-radius: 5px;
+	height: 25px;
+	width: 101px;
+  }
+  
+  .line-input1:focus {
+	border: 1px solid transparent;
+	border-radius: 5px;
+	outline: none;
+  }
+
+  .ok{
+    background: #203876;
+    width: 120px;
+    height: 32px;
+    border-radius: 5px;
+    padding: 10px 12px 10px 12px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #203876;
+    font-size: 12px;
+  }
+  ::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+     max-width: 60vw !important; 
+  }
+   
+
+  .quantity{
+    color: #1B84FF;
+  }
+
+  .price{
+    color:#00730D;
+  }
+
+  ::ng-deep .mat-mdc-dialog-surface {
+    border-radius: 8px !important;
+}
+
+ng-dropdown-panel.custom-class {
+  display: contents !important;
+}
+
+::ng-deep .ng-select.ng-select-single .ng-select-container {
+  height: 30px !important;
+}
+
+::ng-deep .ng-select .ng-select-container {
+  color: #333;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  min-height: 30px !important;
+  align-items: center;
+  font-size: 12px;
+}
+
+::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  white-space: nowrap;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+::ng-deep .ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container{
+  border-color: #ced4da !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}

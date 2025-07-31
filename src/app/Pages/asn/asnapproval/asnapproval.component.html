@@ -1,0 +1,63 @@
+<div class="card mt-3">
+    <div class="card-header d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div style="height: 40px; display: flex; align-items: center;border-bottom: none;">
+          <div>ASN Approval<br>
+        <span class="card-subtitle">Keep track of your shipment entries and confirm pending ASNs here.</span></div>
+          
+        </div>
+        <div class="d-flex gap-3 mt-3 mt-md-0">
+            <div class="searches d-flex ">
+                <span class="default-search"></span>
+                <input matInput type="search" id="search" name="search" placeholder="Search..." class="search-input"
+                  >
+              </div>
+        </div>
+      </div>
+        <div class="card-table" style="padding: 1rem 0rem;">
+            <div class="table-container">
+              <table mat-table [dataSource]="ReportdataSource" matSort style="width: 100%; white-space: nowrap">
+                <ng-container *ngFor="let colName of ReportdisplayedColumns" [matColumnDef]="colName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    {{ colName }}
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    <div *ngIf="colName != 'Action' && colName !== 'Status' && colName !== 'Quantity' && colName !== 'Price' && colName !== 'Total Amount' ">
+                      {{ element[colName] }}
+                    </div>
+                    <div *ngIf="colName === 'Action'" class="action-buttons">
+                        <button class="eye" (click)="demo()">
+                          <span class="tabler--eye"></span>
+                        </button>
+                        <button class="eye">
+                          <span class="charm--tick-double"></span>
+                        </button>
+                        <button class="eye">
+                          <span class="carbon--close-outline"></span>
+                        </button>
+                       
+                      
+                      </div>
+                      
+                    <div *ngIf="colName === 'Status'">
+                        <span *ngIf="element.Status === 'Open'" class="open">Open</span>
+                        <span *ngIf="element.Status === 'Approved'" class="approved">Approved</span>
+                        <span *ngIf="element.Status === 'Rejected'" class="reject">Rejected</span>
+                  </div>
+
+                  <div *ngIf="colName === 'Price' || colName === 'Total Amount' ">
+                    <span class="price">{{ element[colName] }}</span>
+                </div>
+                <!-- <div *ngIf="colName === 'Total Amount' ">
+                  <span class="price">{{ element[colName] }}</span>
+              </div> -->
+                  </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="ReportdisplayedColumns" class="mat-header-row"></tr>
+                <tr mat-row *matRowDef="let row; columns: ReportdisplayedColumns" class="mat-row"></tr>
+              </table>
+            </div>
+            <mat-paginator #MatPaginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page"></mat-paginator>
+          </div>
+  
+</div>

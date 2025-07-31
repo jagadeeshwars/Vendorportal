@@ -1,0 +1,65 @@
+<section class="position-relative root">
+    <div class="container-fluid d-grid" style="height: 100vh;">
+        <div class="row d-flex flex-wrap align-items-center justify-content-between h-100">
+            <div class="col-lg-8  col-sm-12 d-flex flex-column align-items-center text-center ">
+
+                <div id="animation-container" class="animation-container">
+                </div>
+                <div class="d-flex justify-content-start gap-3 footer">
+                    <div>
+                        <img src="../../../assets/img/Line 16.png" class="img">
+                    </div>
+                    <div>
+                        <p class="heading"><b>SEAMLESS</b> VENDOR GATEWAY</p>
+                        <p class="text">
+                            Simplify communication, enhance collaboration, and <br>optimize operations effortlessly with
+                            our intuitive software.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="logincard">
+                    <div class="login py-2 px-4 px-md-5 d-grid h-100">
+                        <div class="clientlogo mb-3 text-center">
+                            <img src="../../../assets/img/image 3.png" alt="indus" class="img-fluid">
+                        </div>
+                        <div class="text-center">
+                            <p class="fw">Welcome to Vendor Portal</p>
+                            <p class="log">Please log in to access your account</p>
+                        </div>
+                        <form class="row compmaster">
+                            <div class="col-md-12 inputfield">
+                                <label for="UserLoginCode">User Name</label>
+                                <input placeholder="Enter username" class="form-control" type="text" name="UserLoginCode"
+                                    id="UserLoginCode" [(ngModel)]="LoginModel.username">
+                            </div>
+                            <div class="col-md-12 password-wrapper inputfield">
+                                <label for="UserLoginPassword">Password</label>
+                                <input matInput [type]="passwordFieldType" class="form-control" id="UserLoginPassword"
+                                    name="UserLoginPassword" autocomplete="current-password" placeholder="Password"
+                                    [(ngModel)]="LoginModel.password">
+                                <mat-icon class="eye-icon" (click)="togglePasswordVisibility()">
+                                    {{ passwordFieldType === 'password' ? 'visibility' : 'visibility_off' }}
+                                </mat-icon>
+                            </div>
+                            <div class="d-flex justify-content-end gap-2 mt-3">
+                                <a href="" class="forget"><span>Forget Password?</span></a>
+
+                            </div>
+                            <div class="d-flex justify-content-center gap-2 mt-3">
+                                <button type="submit" class="input-style submit"
+                                    (click)="onLoggedin($event)">Login</button>
+                            </div>
+                        </form>
+                        <div class="d-flex align-items-center flex-wrap justify-content-center my-3">
+
+                            <a href="" style="width: 180px;"><img src="../../../assets/img/powered by.png"
+                                    class="img-fluid float-end d-block" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

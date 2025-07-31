@@ -1,0 +1,168 @@
+.sidebar-content {
+  padding: 12px;
+  position: relative;
+}
+.menu-flow {
+  height: calc(100vh - 89px);
+  overflow-y: auto;
+}
+.menu-flow::-webkit-scrollbar {
+  display: none;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  .cicle-logo {
+    height: 40px;
+    width: 40px;
+    margin-left: 32px;
+  }
+  .text-logo {
+    height: 35px;
+  }
+}
+.btn-b {
+  background: #ffffff;
+  height: 25px;
+  width: 25px;
+  border-radius: 8px;
+  border: 1px solid #f1f1f4;
+  margin-left: auto;
+  margin-right: -25px;
+  z-index: 100;
+}
+
+.heading {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.main-menu {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0%;
+  color: #ffffff;
+}
+
+.submenu-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  cursor: pointer;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #ffffff;
+  margin-left: 25px;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 2px;
+  // padding-left: 20px;
+  cursor: pointer;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+.submenu-item.active {
+  background-color: #fff;
+  color: #203876;
+}
+.submenu-wrapper {
+  position: relative;
+}
+// .dot {
+//   position: relative;
+// }
+// .dot {
+//   content: "";
+//   position: absolute;
+//   height: 5px;
+//   width: 5px;
+//   left: 9px;
+//   background: #203876;
+//   border-radius: 50%;
+// }
+.submenu-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: calc(100% - 10px);
+  background: #fff;
+  margin-bottom: 10px;
+  left: 14px;
+}
+.white-line {
+  margin-left: 26px;
+  position: relative;
+}
+
+.lap-hide {
+  display: none;
+}
+
+
+
+.d-none1 {
+  display: none !important;
+}
+
+.center-logo {
+  margin-left: 0px !important;
+}
+@media (max-width: 969px) {
+  .mob-hide {
+    display: none;
+  }
+  .lap-hide {
+    display: block;
+  }
+}
+
+
+.no-submenu-active {
+  background-color: #ffffff; 
+  border-radius: 6px;
+  padding: 10px;
+  transition: background-color 0.3s;
+  color: #203876; 
+}
+
+
+
+
+
+
+.title {
+  margin-left: 8px;
+
+}
+
+.submenu-wrapper {
+  padding-left: 15px;
+}
+
