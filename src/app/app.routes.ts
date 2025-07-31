@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { BaseComponent } from './layout/base/base.component';
+import { GuardService } from './auth/guard.service';
 
 export const routes: Routes = [
     {
@@ -8,7 +9,7 @@ export const routes: Routes = [
     {
         path: '',
         component: BaseComponent,
-        // canActivate: [GuardService],
+       canActivate: [GuardService],
         children: [
           {
             path: 'dashboard',

@@ -32,13 +32,13 @@
                             <div class="col-md-12 inputfield">
                                 <label for="UserLoginCode">User Name</label>
                                 <input placeholder="Enter username" class="form-control" type="text" name="UserLoginCode"
-                                    id="UserLoginCode" [(ngModel)]="LoginModel.username">
+                                    id="UserLoginCode" [(ngModel)]="Header.UserName">
                             </div>
                             <div class="col-md-12 password-wrapper inputfield">
                                 <label for="UserLoginPassword">Password</label>
                                 <input matInput [type]="passwordFieldType" class="form-control" id="UserLoginPassword"
                                     name="UserLoginPassword" autocomplete="current-password" placeholder="Password"
-                                    [(ngModel)]="LoginModel.password">
+                                    [(ngModel)]="Header.Password">
                                 <mat-icon class="eye-icon" (click)="togglePasswordVisibility()">
                                     {{ passwordFieldType === 'password' ? 'visibility' : 'visibility_off' }}
                                 </mat-icon>
