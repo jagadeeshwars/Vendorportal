@@ -1,0 +1,191 @@
+<div class="breadcrumb-main">
+    <div class="bg-light-primary rounded   overflow-hidden ng-star-inserted bb-box">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="d-flex align-items-center overflow-hidden">
+                    <ul class="breadcrumb align-items-center">
+                        <!-- <li tabindex="0" class="breadcrumb-item ng-star-inserted">
+                            <a href="/dashboard/dashboard">Dashboard</a>
+                        </li> -->
+                        <li class="breadcrumb-item active f-s-14 ng-star-inserted">PO Schedule Date</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4 text-right position-relative">
+                <div class="breadcrumb-icon">
+                    <img src="/assets/img/breadcrumb/ChatBc.png" alt="breadcrumb" width="165">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div style="height: 40px; display: flex; align-items: center;border-bottom: none;margin-top: -7px;">
+            <div>PO Schedule Date</div>
+        </div>
+    </div>
+    <div class="card-body" style="height: calc(100vh -0px);overflow: auto;">
+        <div class="row align-items-center">
+            <div class="col-lg-3">
+                <div class="searches d-flex">
+                    <span class="default-search"></span>
+                    <input matInput type="search" id="search" name="search" placeholder="Search..."
+                        (keyup)="applyFilter($event)" class="search-input w-100">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="d-flex">
+                    <button mat-raised-button color="primary" class="cloud-download">
+                        <mat-icon class="exportIcon">cloud_download</mat-icon>
+                        Export
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-2">
+                <label>From Date</label>
+                <input type="date" class="form-control" name="filterDate" [(ngModel)]="Filter.fromdate"
+                    (change)="getSchdulePoList()" />
+            </div>
+            <div class="col-lg-2">
+                <label>To Date</label>
+                <input type="date" class="form-control" name="filterDate" [(ngModel)]="Filter.todate"
+                    (change)="getSchdulePoList()" />
+            </div>
+        </div>
+    </div>
+    <div class="po-table">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-table">
+                    <div class="table-container" style="height:48vh;overflow:auto">
+                        <table mat-table [dataSource]="newTableDataSource" class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull tmfull-ms" multiTemplateDataRows>
+                            <!-- Outer Table Columns -->
+                            <ng-container *ngFor="let Rows of DetailData let colIndex = index"
+                                [matColumnDef]="Rows.Column">
+                                <th mat-header-cell *matHeaderCellDef class="edit-main-head" style="text-align: left;"
+                                    ng-class={} [ngClass]="{'sticky-column': colIndex < 2}">
+                                    <ng-container [ngSwitch]="Rows.Column">
+                                        <span *ngSwitchCase="'checked'">
+                                            <label class="custom-checkbox">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </span>
+                                        <span *ngSwitchDefault>{{ Rows.Description }}</span>
+                                    </ng-container>
+                                </th>
+                                <!-- <td mat-cell *matCellDef=" let f = dataIndex;let element; "  -->
+                                <td mat-cell *matCellDef=" let f = dataIndex ; let element; "
+                                    [attr.disabled]="element['ProductionConfirmed']=='Y'"
+                                    [ngClass]="{'sticky-column': colIndex < 2}" style="text-align: left;">
+                                    <ng-container [ngSwitch]="Rows.type">
+
+                                        <span *ngSwitchCase="'S.NO'">{{(f+1)+SerialNo}}</span>
+
+                                        <label class="custom-checkbox" *ngSwitchCase="'CheckBox'"
+                                            (click)="$event.stopPropagation()">
+                                            <input type="checkbox" [(ngModel)]="element['Checked']"
+                                                [disabled]="element['ProductionConfirmed']=='Y'"
+                                                [readonly]="Rows.readonly">
+                                            <span class="checkmark"></span>
+                                        </label>
+
+
+                                        <input *ngSwitchCase="'date'" type="date" [(ngModel)]="element[Rows.Column]"
+                                            [disabled]="element['ProductionConfirmed']=='Y'" style="height: 24px;"
+                                            [style.width]="(Rows.length ) + 'px'" (click)="$event.stopPropagation()">
+
+                                        <span *ngSwitchDefault>{{element[Rows.Column]}}</span>
+                                    </ng-container>
+                                </td>
+                            </ng-container>
+
+                            <!-- Expanded Content Column -->
+
+                            <ng-container matColumnDef="expandedDetail">
+                                <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns1.length"
+                                    class="hov nes">
+                                    <div *ngIf="expandedElement === element && newTableDataSource.data.length > 0">
+                                        <table mat-table [dataSource]="innerTableDataSource" class="hov inner"
+                                            style="min-width:inherit!important; background-color: inherit!important;">
+
+                                            <ng-container *ngFor="let Rows of DetailData1" [matColumnDef]="Rows.Column">
+                                                <th mat-header-cell *matHeaderCellDef class="edit-main-head2"
+                                                    style="text-align: left;">
+                                                    <ng-container [ngSwitch]="Rows.Column">
+                                                        <span *ngSwitchCase="'Add'">
+                                                            <button class="btn-white-1" (click)="addRow(element)">
+                                                                <span class="mod-plus"
+                                                                    style="height:10px;width:10px; right:3px; bottom: 1px;">
+                                                                </span></button>
+                                                        </span>
+                                                        <span *ngSwitchDefault>{{ Rows.Description }}</span>
+                                                    </ng-container>
+                                                </th>
+                                                <td mat-cell *matCellDef="let row; let i = index"
+                                                    style="text-align: left;">
+
+                                                    <ng-container [ngSwitch]="Rows.type">
+                                                        <span *ngSwitchCase="'S.NO'">{{i+1}}</span>
+
+                                                        <input *ngSwitchCase="'Text1'" type="number"
+                                                            [(ngModel)]="row[Rows.Column]" min="0"
+                                                            style="height: 24px; text-align: right;"
+                                                            [style.width]="(Rows.length ) + 'px'"
+                                                            (change)="ReqQtyValidation(expandedElement,row['LineID'],'',1)"
+                                                            [ngClass]="{
+                                'order': Rows.Column === 'OrderedQty',
+                                'available': Rows.Column === 'AvailableQty',
+                                'req': Rows.Column === 'RequireQty',
+                                'confirmed': Rows.Column === 'confirmedQty',
+                                'balance': Rows.Column === 'BalanceQty',
+                                'allocate': Rows.Column === 'AllocatedQty'
+                              }">
+
+                                                        <input *ngSwitchCase="'date'" type="date"
+                                                            [(ngModel)]="row[Rows.Column]" style="height: 24px;"
+                                                            [disabled]="expandedElement['ProductionConfirmed']=='Y'"
+                                                            class="in-text" [style.width]="(Rows.length ) + 'px'">
+
+                                                        <span *ngSwitchDefault>{{row[Rows.Column]}}</span>
+                                                    </ng-container>
+                                                    <ng-container [ngSwitch]="Rows.Column">
+                                                        <span *ngSwitchCase="'Action'">
+                                                            <span class="mod-delete del-position"></span>
+                                                        </span>
+                                                    </ng-container>
+                                                </td>
+                                            </ng-container>
+
+                                            <!-- Inner Table Row Definitions -->
+                                            <tr mat-header-row *matHeaderRowDef="innerTableColumns" class="inner-head">
+                                            </tr>
+                                            <tr mat-row *matRowDef="let row; columns: innerTableColumns;"
+                                                class="inner-td"></tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </ng-container>
+
+                            <!-- Outer Table Row Definitions -->
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns1" class="outer-head"
+                                style="border:none"></tr>
+                            <tr mat-row *matRowDef="let row;  let k = dataIndex; columns: displayedColumns1; "
+                                class="outer-tr" (click)="toggleRow(row)"
+                                [class.expanded-row]="expandedElement === row"></tr>
+                            <tr mat-row *matRowDef="let element; columns: ['expandedDetail']"
+                                [ngClass]="{'d-none': expandedElement !== element}" class="example-detail-row"></tr>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="text-right p-t-15 p-b-10 p-10 w-100">
+            <button class="btn-success" (click)="AddPOSchedule()">Save</button>&nbsp;&nbsp;
+            <button class="btn-warning" (click)="Clear()">Cancel</button>
+        </div>
+    </div>

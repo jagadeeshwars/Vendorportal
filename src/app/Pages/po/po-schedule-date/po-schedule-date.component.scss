@@ -1,0 +1,23 @@
+@import url('./po-schedule-date.component.scss');
+
+.btn-white-1 {
+    background: linear-gradient(135deg, #a8a9a9 5.47%, #22233676 94.53%);
+    border-radius: 3px;
+    border: 1px solid #D3D3D3;
+    justify-content: center;
+    align-items: center;
+    height: 18px;
+    width: 18px;
+}
+
+.mod-plus {
+  display: inline-block;
+  background-color: white;
+  width: 1.4em;
+  height: 1.4em;
+  position: relative;
+  bottom: 2px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(/assets/mod-plus.svg);
+}

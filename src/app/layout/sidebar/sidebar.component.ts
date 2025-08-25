@@ -55,6 +55,42 @@ export class SidebarComponent {
     //     ],
     //   },
     // },
+
+    // {
+       
+    //   title: 'PO',
+    //   icon: 'po',
+    //   expanded: false,
+    //   route: '/po/po',
+      
+    // },
+    {
+      // MainTitle: 'Documents',
+      title: 'PO',
+      icon: 'po',
+      expanded: false,
+      submenu: {
+ 
+        items: [
+          {
+            name: 'PO Overview',
+            icon: 'asnreport',
+            route: '/po/po',
+          },
+          {
+            name: 'PO Confirmation',
+            icon: 'packtype',
+            route: '/po/po-confirmation',
+          },
+          {
+            name: 'PO Schedule Date',
+            icon: 'asnapproval',
+            route: '/po/po-schedule-date', 
+          }
+        ],
+      },
+    },
+
     {
       // MainTitle: 'Documents',
       title: 'Advance Shipment Notes',
@@ -77,24 +113,31 @@ export class SidebarComponent {
             name: 'ASN Approval',
             icon: 'asnapproval',
             route: '/asn/asnapproval',
+          },
+          {
+            name: 'Document Upload',
+            icon: 'dspreport',
+            route: '/asn/documentupload',
           }
         ],
       },
     },
-    {
-      // MainTitle: 'Home',
-      title: 'Delivery Schedule',
-      icon: 'delivery',
-      expanded: true,
-      route: '/delivery/devliveryschedule',
-    },
-    {
-      // MainTitle: 'Home',
-      title: 'PO',
-      icon: 'po',
-      expanded: false,
-      route: '/po/po-confirm',
-    },
+
+
+    // {
+    //   // MainTitle: 'Home',
+    //   title: 'Delivery Schedule', 
+    //   icon: 'delivery',
+    //   expanded: true,
+    //   route: '/delivery/devliveryschedule',
+    // },
+    // {
+      
+    //   title: 'PO',
+    //   icon: 'po',
+    //   expanded: false,
+    //   route: '/po/po-confirm',
+    // },
     
   ];
 

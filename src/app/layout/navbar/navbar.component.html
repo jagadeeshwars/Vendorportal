@@ -1,102 +1,56 @@
-<!-- <div class="header">
-  <div class="left-section">
-    <div class="mdi--hamburger-open" (click)="toggleSidebar()"></div>
-  </div>
 
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb mb-0">
-      <li *ngFor="let breadcrumb of breadcrumbs; let last = last" class="breadcrumb-item"
-        [ngClass]="{ 'active': last }">
-        <ng-container *ngIf="!last">
-          <a [routerLink]="breadcrumb.url" class="tex1">{{ breadcrumb.label }}</a>
-        </ng-container>
-        <ng-container *ngIf="last">
-          {{ breadcrumb.label }}
-        </ng-container>
-      </li>
-    </ol>
-  </nav>
-
-
-  <div class="ms-auto d-flex align-items-center gap-4 me-4">
-    <button class="show"></button>
-    <button class="msg"></button>
-
-    <div class="profile-info" (click)="toggleDropdown($event)">
-      <img src="/assets/img/profile.png" style="height: 25px; width: 25px; border-radius: 50%" />
-    </div>
-
-    <div *ngIf="showDropdown" class="profile-dropdown" #dropdownRef>
-      <div class="dropdown-content">
-        <img src="/assets/img/profile.png" class="profile-pic-lg" />
-        <div class="user-name">User</div>
-        <div class="border-bottom"></div>
-        <button (click)="logout()" class="logout-btn">
-          <span class="material-symbols-light--logout-rounded"></span>
-          <span>Logout</span>
-        </button>
-        
-      </div>
-    </div>
-  </div>
-
-</div> -->
 <div class="app-topstrip bg-dark text-white p-y-16 p-x-24 w-100 d-flex align-items-center justify-content-between">
-    <div class=" d-sm-flex align-items-center justify-content-center gap-20">
-        <a href="" target="_blank" class="d-flex align-items-center"><img src="/public/assets/logo.png"
-                alt="" width="150"></a>
-    </div>
-    <div class="topstrip-right d-flex align-items-center justify-content-center gap-16">
-        <!-- <a mat-button class="link-hover p-x-0 text-white d-flex" href="/" target="_blank">
+  <div class=" d-sm-flex align-items-center justify-content-center gap-20">
+    <!-- <a href="" target="_blank" class="d-flex align-items-center"><img src="/assets/logo.png" alt=""
+        width="150"></a> -->
+  </div>
+  <div class="topstrip-right d-flex align-items-center justify-content-center gap-16">
+    <!-- <a mat-button class="link-hover p-x-0 text-white d-flex" href="/" target="_blank">
             <div class="d-flex align-items-center gap-8 f-s-14 f-w-400">
                 <i class="iconify icon-20 d-flex" data-icon="hugeicons:user-ai"></i>
                 Signin
             </div>
         </a> -->
 
-        <div class="topstrip-right-inner d-flex justify-content-center align-items-center gap-10">
-            <div class="d-flex justify-content-center align-items-center gap-10">
-                <!-- <a [routerLink]="['/authentication/register']"
-                    class="d-flex justify-content-center bg-secondary mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base border-radius-0">
-                    <i-tabler name="user-plus" class="icon-20 d-flex"></i-tabler> &nbsp;&nbsp;SignIn
-                </a> -->
-                <!-- <a [routerLink]="['/authentication/login']"
-                    class="d-flex justify-content-center bg-gredient mdc-button mdc-button--unelevated mat-mdc-unelevated-button mat-unthemed mat-mdc-button-base border-radius-0">
-                    <i class="iconify icon-20 d-flex" data-icon="hugeicons:user-ai"></i> &nbsp;&nbsp;SignIn
-                </a> -->
-                <div>
-                    <div class="d-flex align-items-center"> <b>Welcome</b>&nbsp; uthaya &nbsp;&nbsp;
-                        <button class="live-preview-drop2 d-flex align-items-center gap-4 text-white f-s-14 text-white"
-                            mat-button [matMenuTriggerFor]="beforeMenu4">
-                            <div class="d-flex align-items-center gap-6">
-                                <img src="/public/1.webp" class="rounded-circle object-cover d-block"
-                                    width="35" />
-                            </div>
-                        </button>
-                    </div>
-                    <mat-menu class="p-x-16 p-y-8 rounded-7" #beforeMenu4="matMenu" xPosition="before">
-                        <button mat-menu-item>
-                            <mat-icon class="d-flex align-items-center"><i name="user"
-                                    class="icon-18 d-flex"></i></mat-icon>My
-                            Profile
-                        </button>
-                        <button mat-menu-item>
-                            <mat-icon class="d-flex align-items-center"><i name="mail"
-                                    class="icon-18 d-flex"></i></mat-icon>My
-                            Account
-                        </button>
-                        <!-- <button mat-menu-item>
+    <div class="topstrip-right-inner d-flex justify-content-center align-items-center gap-10">
+      <div class="d-flex justify-content-center align-items-center gap-10">
+ 
+        <div>
+          <div class="d-flex align-items-center"> <b>Welcome</b>&nbsp; {{this.getLoginDetails.EmployeeName}} &nbsp;&nbsp;
+            <button class="live-preview-drop2 d-flex align-items-center gap-4 text-white f-s-14 text-white" mat-button
+              [matMenuTriggerFor]="beforeMenu4">
+              <div class="d-flex align-items-center gap-6">
+                <img src="/assets/user-1.jpg" class="rounded-circle object-cover d-block" width="35" />
+              </div>
+            </button>
+          </div>
+          <mat-menu class="p-x-16 p-y-8 rounded-7" #beforeMenu4="matMenu" xPosition="before">
+            <!-- <button mat-menu-item>
+              <mat-icon class="d-flex align-items-center"><i name="user" class="icon-18 d-flex"></i></mat-icon>My
+              Profile
+            </button> -->
+            <button mat-menu-item>
+              <mat-icon class="d-flex align-items-center"><i name="mail" class="icon-18 d-flex"></i></mat-icon>My
+              Account
+            </button>
+            <!-- <button mat-menu-item>
                             <mat-icon class="d-flex align-items-center"><i-tabler name="list-check"
                                     class="icon-18 d-flex"></i-tabler></mat-icon>My Task
                         </button> -->
-
+            <!-- 
                         <div class="p-x-12 m-t-12">
                             <a [routerLink]="['/authentication/login']" mat-stroked-button class="w-100">Logout</a>
-                        </div>
-                    </mat-menu>
+                        </div> -->
+            <li class="dropdown-item">
+              <a    (click)="logout()" class="d-flex text-body  ms-0">
 
-                </div>
-            </div>
+                <span class="vz1">Log Out</span>
+              </a>
+            </li>
+          </mat-menu>
+
         </div>
+      </div>
     </div>
+  </div>
 </div>

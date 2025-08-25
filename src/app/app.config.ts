@@ -4,7 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServicesService } from './API/services.service';
 
@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
      provideRouter(routes),
       provideClientHydration(), 
       provideAnimationsAsync(),
-        provideHttpClient(),
+        provideHttpClient(withFetch()),
   importProvidersFrom(BrowserAnimationsModule),
     ServicesService]
     

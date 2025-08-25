@@ -1,63 +1,195 @@
-<div class="card mt-3">
-    <div class="card-header d-flex flex-column flex-md-row align-items-center justify-content-between">
-        <div style="height: 40px; display: flex; align-items: center;border-bottom: none;">
-          <div>ASN Approval<br>
-        <span class="card-subtitle">Keep track of your shipment entries and confirm pending ASNs here.</span></div>
-          
-        </div>
-        <div class="d-flex gap-3 mt-3 mt-md-0">
-            <div class="searches d-flex ">
-                <span class="default-search"></span>
-                <input matInput type="search" id="search" name="search" placeholder="Search..." class="search-input"
-                  >
-              </div>
+<div class="breadcrumb-main">
+  <div class="bg-light-primary rounded   overflow-hidden ng-star-inserted bb-box">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="d-flex align-items-center overflow-hidden">
+          <ul class="breadcrumb align-items-center">
+            <!-- <li tabindex="0" class="breadcrumb-item ng-star-inserted">
+              <a href="/dashboard/dashboard">Dashboard</a>
+            </li> -->
+            <li class="breadcrumb-item active f-s-14 ng-star-inserted">ASN Approval</li>
+          </ul>
         </div>
       </div>
-        <div class="card-table" style="padding: 1rem 0rem;">
-            <div class="table-container">
-              <table mat-table [dataSource]="ReportdataSource" matSort style="width: 100%; white-space: nowrap">
-                <ng-container *ngFor="let colName of ReportdisplayedColumns" [matColumnDef]="colName">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                    {{ colName }}
-                  </th>
-                  <td mat-cell *matCellDef="let element">
-                    <div *ngIf="colName != 'Action' && colName !== 'Status' && colName !== 'Quantity' && colName !== 'Price' && colName !== 'Total Amount' ">
-                      {{ element[colName] }}
-                    </div>
-                    <div *ngIf="colName === 'Action'" class="action-buttons">
-                        <button class="eye" (click)="demo()">
-                          <span class="tabler--eye"></span>
-                        </button>
-                        <button class="eye">
-                          <span class="charm--tick-double"></span>
-                        </button>
-                        <button class="eye">
-                          <span class="carbon--close-outline"></span>
-                        </button>
-                       
-                      
-                      </div>
-                      
-                    <div *ngIf="colName === 'Status'">
-                        <span *ngIf="element.Status === 'Open'" class="open">Open</span>
-                        <span *ngIf="element.Status === 'Approved'" class="approved">Approved</span>
-                        <span *ngIf="element.Status === 'Rejected'" class="reject">Rejected</span>
-                  </div>
-
-                  <div *ngIf="colName === 'Price' || colName === 'Total Amount' ">
-                    <span class="price">{{ element[colName] }}</span>
-                </div>
-                <!-- <div *ngIf="colName === 'Total Amount' ">
-                  <span class="price">{{ element[colName] }}</span>
-              </div> -->
-                  </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="ReportdisplayedColumns" class="mat-header-row"></tr>
-                <tr mat-row *matRowDef="let row; columns: ReportdisplayedColumns" class="mat-row"></tr>
-              </table>
-            </div>
-            <mat-paginator #MatPaginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
-              aria-label="Select page"></mat-paginator>
-          </div>
-  
+      <div class="col-sm-4 text-right position-relative">
+        <div class="breadcrumb-icon">
+          <img src="/assets/img/breadcrumb/ChatBc.png" alt="breadcrumb" width="165">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="card">
+  <div class="card-header d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <div style="height: 40px; display: flex; align-items: center;border-bottom: none;margin-top: -7px;">
+      <div>ASN Approval</div>
+    </div>
+  </div>
+  <div class="card-body" style="height: calc(100vh -0px);overflow: auto;">
+    <div class="row align-items-center">
+      <div class="col-lg-3">
+        <div class="searches d-flex">
+          <span class="default-search"></span>
+          <input matInput type="search" id="search" name="search" placeholder="Search..." class="search-input w-100">
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="d-flex">
+          <button mat-raised-button color="primary" class="cloud-download">
+            <mat-icon class="exportIcon">cloud_download</mat-icon>
+            Export
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-2"></div>
+      <div class="col-lg-2">
+        <label>From Date</label>
+        <input type="date" class="form-control" name="filterDate" />
+      </div>
+      <div class="col-lg-2">
+        <label>To Date</label>
+        <input type="date" class="form-control" name="filterDate" />
+      </div>
+    </div>
+  </div>
+  <div class="po-table">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-table">
+          <div class="table-responsive table-bar">
+            <input id="toggle1" class="row-toggle" type="checkbox" />
+            <!-- <table class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull">
+           
+            </table> -->
+            <table mat-table [dataSource]="newTableDataSource" role="table"
+              class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull1" multiTemplateDataRows>
+              <!-- Outer Table Columns -->
+              <ng-container *ngFor="let Rows of DetailData let colIndex = index" [matColumnDef]="Rows.Column">
+                <th mat-header-cell *matHeaderCellDef class="edit-main-head sticky-thead" style="text-align: left;"
+                  ng-class={} [ngClass]="{'sticky-column': colIndex < 2}">
+                  <ng-container [ngSwitch]="Rows.Column">
+                    <span *ngSwitchCase="'checked'">
+                      <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </span>
+
+                    <span *ngSwitchDefault>{{ Rows.Description }}</span>
+                  </ng-container>
+                </th>
+                <!-- <td mat-cell *matCellDef=" let f = dataIndex;let element; "  -->
+                <td mat-cell *matCellDef=" let f = dataIndex ; let element; "
+                  [ngClass]="{'sticky-column': colIndex < 2}" style="text-align: left;" class="dubaimainroad">
+                  <ng-container [ngSwitch]="Rows.type">
+
+                    <div style="width: 100%;">
+                      <span *ngSwitchCase="'S.NO'">{{(f+1)+SerialNo}}</span>
+
+                      <span *ngSwitchCase="'Action'" class="action-buttons flex space-x-2" (click)="$event.stopPropagation()">
+
+                        <!-- ✅ Approve -->
+                        <button mat-raised-button class="approve-btn approve-chip" (click)="approveRejectHold(element,'Approve')">
+                          <mat-icon>check_circle</mat-icon>
+                          Approve
+                        </button>
+
+                        <!-- ❌ Reject -->
+                        <button mat-raised-button class="reject-btn reject-chip"  (click)="approveRejectHold(element,'Reject')">
+                          <mat-icon>cancel</mat-icon>
+                          Reject
+                        </button>
+
+                        <!-- ⏸ Hold -->
+                        <button mat-raised-button class="hold-btn hold-chip"  (click)="approveRejectHold(element,'Hold')">
+                          <mat-icon>pause_circle</mat-icon>
+                          Hold
+                        </button>
+
+                      </span>
+
+
+                      <span *ngSwitchCase="'Status'" [ngClass]="{
+                      'status-approved': element[Rows.Column] === 'Approved',
+                            'status-other': element[Rows.Column] !== 'Approved'}">
+                        {{element[Rows.Column]}}
+                      </span>
+
+                      <label class="custom-checkbox" *ngSwitchCase="'CheckBox'" (click)="$event.stopPropagation()">
+                        <input type="checkbox" [(ngModel)]="element['Checked']"
+                          [disabled]="element['ProductionConfirmed']=='Y'" [readonly]="Rows.readonly">
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <span *ngSwitchDefault>{{element[Rows.Column]}}</span>
+                    </div>
+                  </ng-container>
+                </td>
+              </ng-container>
+
+              <!-- Expanded Content Column -->
+
+              <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns1.length" class="hov nes"
+                  colspan="3">
+                  <div *ngIf="expandedElement === element && newTableDataSource.data.length > 0">
+                    <table mat-table [dataSource]="innerTableDataSource" class="hov inner"
+                      style="min-width:inherit!important; background-color: inherit!important;">
+
+                      <ng-container *ngFor="let Rows of DetailData1" [matColumnDef]="Rows.Column">
+                        <th mat-header-cell *matHeaderCellDef class="edit-main-head2" style="text-align: left;">
+                          <ng-container [ngSwitch]="Rows.Column">
+
+                            <span *ngSwitchDefault>{{ Rows.Description }}</span>
+                          </ng-container>
+                        </th>
+                        <td mat-cell *matCellDef="let row; let i = index" style="text-align: left;">
+
+                          <ng-container [ngSwitch]="Rows.type">
+                            <span *ngSwitchCase="'S.NO'">{{i+1}}</span>
+                            <span *ngIf="this.UserType !== 'User'">
+                              <input *ngSwitchCase="'CheckBox'" type="checkbox" [(ngModel)]="row['PoConfirmed']">
+                            </span>
+
+                            <input *ngSwitchCase="'date'" type="date" [(ngModel)]="row[Rows.Column]"
+                              style="height: 24px;" [disabled]="expandedElement['ProductionConfirmed']=='Y'"
+                              class="in-text" [style.width]="(Rows.length ) + 'px'">
+
+
+
+                            <span *ngSwitchDefault>{{row[Rows.Column]}}</span>
+                          </ng-container>
+                          <ng-container [ngSwitch]="Rows.Column">
+                            <span *ngSwitchCase="'Action'">
+                              <span class="mod-delete del-position"></span>
+                            </span>
+                          </ng-container>
+                        </td>
+                      </ng-container>
+
+                      <!-- Inner Table Row Definitions -->
+                      <tr mat-header-row *matHeaderRowDef="innerTableColumns" class="inner-head">
+                      </tr>
+                      <tr mat-row *matRowDef="let row; columns: innerTableColumns;" class="inner-td"></tr>
+                    </table>
+                  </div>
+                </td>
+              </ng-container>
+
+              <!-- Outer Table Row Definitions -->
+              <tr mat-header-row *matHeaderRowDef="displayedColumns1" class="outer-head" style="border:none"></tr>
+              <tr mat-row *matRowDef="let row;  let k = dataIndex; columns: displayedColumns1; " class="outer-tr"
+                (click)="toggleRow(row)" [class.expanded-row]="expandedElement === row"></tr>
+              <tr mat-row *matRowDef="let element; columns: ['expandedDetail']"
+                [ngClass]="{'d-none': expandedElement !== element}" class="example-detail-row"></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="text-right p-t-15 p-b-10 p-10 w-100">
+      <button class="btn-success">Approve</button>&nbsp;&nbsp;
+      <button class="btn-primary">Hold</button>&nbsp;&nbsp;
+      <button class="btn-warning">Reject</button>
+    </div> -->
+  </div>

@@ -1,6 +1,8 @@
-import { Injectable,Inject, PLATFORM_ID  } from '@angular/core';
-import { CanActivate, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { CanActivate, RouterStateSnapshot, ActivatedRouteSnapshot, UrlTree } from '@angular/router';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -8,12 +10,33 @@ import { Router } from '@angular/router';
 export class GuardService implements CanActivate {
   constructor(private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) { }
 
-  
+  // async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
+  //   if (typeof window !== 'undefined') {
+  //     // If SSR, skip popup and allow navigation
+  //     if (!isPlatformBrowser(this.platformId)) {
+  //       return true;
+  //     }
+  //     const result = await Swal.fire({
+  //       title: 'Are you sure?',
+  //       text: 'Do you want to go to the login page?',
+  //       icon: 'warning',
+  //       showCancelButton: true,
+  //       confirmButtonText: 'Yes, go',
+  //       cancelButtonText: 'Stay here',
+  //     });
+
+  //     if (result.isConfirmed) {
+  //       return true; // allow
+  //     } else {
+  //       return this.router.navigate(['/auth/login'], { queryParams: { returnUrl: state.url } });
+  //     }
+  //   }
+
+  //   return false;
+  // }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-   // const checkToken1 = localStorage.getItem("LoginDetails");
-    // if (localStorage.getItem('isLoggedin') && checkToken1) {
       if(typeof window !== 'undefined' )
         {
           const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -23,14 +46,10 @@ export class GuardService implements CanActivate {
                // logged in so return true
               return true;
             }
-          // if (localStorage.getItem('isLoggedin')) {
-          //   // logged in so return true
-          //   return true;
-          // }
-          // not logged in so redirect to login page with the return url
           this.router.navigate(['/auth/login'], { queryParams: { returnUrl: state.url } });
-         
+
         }
         return false;
   }
+
 }

@@ -6,11 +6,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
 import { MaterialModule } from '../../MaterialModule';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule,FormsModule,CommonModule,MatIconModule,MatMenuModule,MaterialModule],
+  imports: [RouterModule, FormsModule, CommonModule, MatIconModule, MatMenuModule, MaterialModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -64,12 +65,8 @@ export class NavbarComponent {
     this.showDropdown = !this.showDropdown;
   }
 
-  logout() {
-    // handle logout logic here
-    console.log('Logging out...');
-  }
 
-   getLoginDetails: any;   
+  getLoginDetails: any;
   month1: any
   year1: any
 
@@ -90,4 +87,59 @@ export class NavbarComponent {
       this.showDropdown = false;
     }
   }
+  logout() {
+    debugger
+    Swal.fire({
+      title: 'Leaving so soon? 👋',
+      html: `
+        <div style="font-size:16px; margin-top:10px;">
+          Your current session will end.<br>
+          Are you <b>sure</b> you want to logout?
+        </div>
+      `,
+      icon: 'warning',
+      background: 'rgba(255, 255, 255, 0.8)',
+
+      showCancelButton: true,
+      confirmButtonText: '🚪 Yes, Logout',
+      cancelButtonText: '✨ Stay Logged In',
+      customClass: {
+        popup: 'glass-popup',
+        confirmButton: 'gradient-confirm-btn',
+        cancelButton: 'gradient-cancel-btn'
+      },
+      reverseButtons: true
+    }).then(result => {
+      if (result.isConfirmed) {
+        localStorage.setItem('userid', '');
+        localStorage.setItem('active', 'false');
+        localStorage.setItem('sessionId', '');
+        localStorage.setItem('isLoggedin', 'false');
+        localStorage.clear();
+        this.router.navigate(['/auth/login']);
+      }
+    });
+
+
+    //  this.dataService.Logout(headerOptions).subscribe((dtdata) => {
+    //   if (dtdata.success == true) {
+    //     console.log('logout success')
+    //     this.toastr.success({ detail: "Success", summary: 'Logout successfully!!!', duration: 3000 });
+    //     localStorage.clear();
+    //     if (!localStorage.getItem('isLoggedin')) {
+    //       this.router.navigate(['/auth/login']);
+    //     }
+    //   }
+    //   else if (dtdata.success == false) {
+    //     console.log('logout success failed',dtdata)
+    //     localStorage.clear();
+    //     if (!localStorage.getItem('isLoggedin')) {
+    //       this.router.navigate(['/auth/login']);
+    //     }
+    //   }
+    //  this.socket.emit('logout', { userid: userid, sessionId: sessionId });
+    //});
+
+  }
+
 }

@@ -1,283 +1,126 @@
-<mat-tab-group (selectedTabChange)="onTabChanged($event)" [(selectedIndex)]="selectedIndex">
-
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon>local_shipping</mat-icon> &nbsp;Shipment
-    </ng-template>
-    <div class="header d-flex justify-content-between align-items-center mt-2">
-      <div>
-        <div class="card-title">Shipment</div>
-        <div class="card-subtitle">
-          You can Edit and Customize Instantly
+<div class="breadcrumb-main">
+  <div class="bg-light-primary rounded overflow-hidden ng-star-inserted bb-box">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="d-flex align-items-center overflow-hidden">
+          <ul class="breadcrumb align-items-center">
+            <!-- <li tabindex="0" class="breadcrumb-item ng-star-inserted">
+              <a href="/dashboard/dashboard">Dashboard</a>
+            </li> -->
+            <li class="breadcrumb-item active f-s-14 ng-star-inserted">ASN Request</li>
+          </ul>
         </div>
       </div>
-      <span class="icon-park-solid--back"></span>
-    </div>
-    <div class="card-body">
-
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-3">
-            <label for="transport">Transport Id Code</label>
-            <input matInput matInput type="text" id="transport" name="transport" placeholder="Enter Transport Id Code"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="CustId">Mode of Transport</label>
-            <ng-select name="CustId" id="CustId" appendTo="body" placeholder="Enter Mode of Transport">
-              <ng-option *ngFor="let data of Transport; let i = index" [value]="data['Code']">
-                {{data["Code"]}} - {{data["Name"]}}
-              </ng-option>
-            </ng-select>
-          </div>
-          <div class="col-md-3">
-            <label for="Vechile">Vehicle Number</label>
-            <input matInput type="text" id="Vechile" name="Vechile" placeholder="Enter Vechile Number"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="ShippingDate">Shipping Date</label>
-            <input matInput type="text" id="ShippingDate" name="ShippingDate" placeholder="Enter Shipping Date"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="DriverName">Driver Name</label>
-            <input matInput type="text" id="DriverName" name="DriverName" placeholder="Enter Driver Name"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="DeliveryDate">Delivery Date</label>
-            <input matInput type="date" id="DeliveryDate" name="DeliveryDate" placeholder="Enter Delivery Date"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="date">Date</label>
-            <input matInput type="date" id="date" name="Date" placeholder="Enter Date"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="Status">Status</label>
-            <ng-select name="Status" id="Status" appendTo="body" placeholder="Enter Status">
-              <ng-option *ngFor="let data of Status; let i = index" [value]="data['Code']">
-                {{data["Code"]}} - {{data["Name"]}}
-              </ng-option>
-            </ng-select>
-          </div>
+      <div class="col-sm-4 text-right position-relative">
+        <div class="breadcrumb-icon">
+          <img src="/assets/img/breadcrumb/ChatBc.png" alt="breadcrumb" width="165">
         </div>
       </div>
     </div>
-    <div class="header d-flex justify-content-between align-items-center">
-      <div>
-        <div class="card-title">Document Details</div>
-        <div class="card-subtitle">
-          You can Edit and Update your Information
+  </div>
+</div>
+<div class="card">
+  <div class="card-header d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <div style="height: 40px; display: flex; align-items: center;border-bottom: none;margin-top: -7px;">
+      <div>ASN Request</div>
+    </div>
+  </div>
+  <div class="card-body" style="height: calc(100vh -0px);overflow: auto;">
+    <div class="row align-items-center">
+      <div class="col-lg-3">
+        <div class="searches d-flex">
+          <span class="default-search"></span>
+          <input matInput type="search" id="search" name="search" (keyup)="applyFilter($event)" placeholder="Search..."
+            class="  w-100">
         </div>
       </div>
-    </div>
-    <div class="card-body">
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-3">
-            <label for="DCNumber">DC Number</label>
-            <input matInput type="text" id="DCNumber" name="DCNumber" placeholder="Enter DC Number" class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="Dcdate">DC Date</label>
-            <input matInput type="date" id="Dcdate" name="Dcdate" placeholder="Enter DC Date" class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="ASNNumber">ASN Number</label>
-            <input matInput type="text" id="ASNNumber" name="ASNNumber" placeholder="Enter ASN Number" class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="Lrnumber">LR Number</label>
-            <input matInput type="text" id="Lrnumber" name="Lrnumber" placeholder="Enter LR Number" class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="Lrdate">LR Date</label>
-            <input matInput type="date" id="Lrdate" name="Lrdate" placeholder="Enter LR Date" class="form-control">
-          </div>
-          <div class="col-md-3"> 
-            <label for="InvoiceNumber">Invoice Number</label>
-            <input matInput type="text" id="InvoiceNumber" name="InvoiceNumber" placeholder="Enter Invoice Number"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="BillofLanding">Bill of Landing</label>
-            <input matInput type="text" id="BillofLanding" name="BillofLanding" placeholder="Enter Bill of Landing"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="invoicedate">Invoice Date</label>
-            <input matInput type="date" id="invoicedate" name="invoicedate" placeholder="Enter Invoice Date"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="BillNumber">E-way Bill Number</label>
-            <input matInput type="text" id="BillNumber" name="BillNumber" placeholder="Enter E-way Bill Number"
-              class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="packing">No of Packing</label>
-            <input matInput type="text" id="packing" name="packing" placeholder="Enter No of Packing" class="form-control">
-          </div>
-          <div class="col-md-3">
-            <label for="attach">Attachment</label>
-            <div class="input-group">
-              <input matInput class="form-control" [value]="Header.Attachment?.name || ''" placeholder="Select your attachment"
-                disabled>
-              <input  type="file" id="attach" hidden (change)="onFileSelected($event)" class="form-control" />
-              <span class="input-group-text">
-                <span matSuffix class="attachment-icon" (click)="triggerFileInput()"></span>
-              </span>
-            </div>
-          </div>
+      <!-- <div class="col-lg-3">
+        <div class="d-flex">
+          <button mat-raised-button color="primary" (click)="exportexcel()" class="cloud-download">
+            <mat-icon class="exportIcon">cloud_download</mat-icon>
+            Export
+          </button>
         </div>
+      </div> -->
+      <!-- <div class="col-lg-2"></div>
+      <div class="col-lg-2">
+        <label>From Date</label>
+        <input type="date" class="form-control" name="filterDate" [(ngModel)]="Filter.fromdate" />
       </div>
-    </div>
-    <div class="d-flex justify-content-end mt-2 ">
-      <button type="button" class="save me-2" (click)="openDialog1('Open','')">Save & Create Gate Inward</button>
-      <button type="button" class="cancel">Cancel</button>
-    </div>
-  </mat-tab>
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon class="example-tab-icon">collections_bookmark</mat-icon>&nbsp;Delivery Line Items
-    </ng-template>
-    <div class="card mt-3">
-      <div class="card-header d-flex flex-column flex-md-row align-items-center justify-content-between">
-        <div style="height: 40px; display: flex; align-items: center;border-bottom: none;margin-top: -7px;">
-          <div>Delivery Line Items<br>
-            <span class="card-subtitle">Keep track of your shipment entries and confirm pending ASNs here.</span>
-          </div>
-
-        </div>
-        <div class="d-flex gap-3 mt-3 mt-md-0">
-          <div class="searches d-flex ">
-            <span class="default-search"></span>
-            <input matInput matInput type="search" id="search" name="search" placeholder="Search..." class="search-input">
-          </div>
-        </div>
-      </div>
-      <div class="card-table" style="padding: 1rem 0rem;">
-        <div class="linetable-container">
-          <table mat-table [dataSource]="DeliverydataSource" matSort style="width: 100%; white-space: nowrap">
-            <ng-container *ngFor="let col of DeliveryTableArray; let colIndex = index" [matColumnDef]="col.Column">
-              <th mat-header-cell *matHeaderCellDef [ngClass]="{ 'sticky-column': colIndex < 2 }" mat-sort-header>
-                {{ col.Description }}
-              </th>
-              <td mat-cell *matCellDef="let element; let i = index" style="
-                      border-top: 1px solid #efefef;
-                      padding-right: 6px;
-                      border-bottom: 1px solid #efefef !important;
-                    " [ngClass]="{ 'sticky-column': colIndex < 2 }">
-                <ng-container [ngSwitch]="col.type">
-                  <span *ngSwitchCase="'sno'">
-                    {{ i + 1 }}
-                  </span>
-                  <input  *ngSwitchCase="'text1'" type="text" [(ngModel)]="element[col.Column]" [readonly]="col.readonly"
-                    class="line-input1" name="text1" />
-                  <input  *ngSwitchCase="'check'" type="checkbox" [(ngModel)]="element[col.Column]"
-                    [readonly]="col.readonly" name="checkbox"/>
-                  <input  *ngSwitchCase="'text'" type="text" [(ngModel)]="element[col.Column]" [readonly]="col.readonly"
-                    class="line-input" name="text"/>
-                  <input  *ngSwitchCase="'date'" type="date" [(ngModel)]="element[col.Column]" [readonly]="col.readonly"
-                    class="line-input1" name="date"/>
-                  <span *ngSwitchCase="'select'">
-                    <select placeholder="Select DeliveryType" name="SerialType" class="line-input" required
-                      [(ngModel)]="element[col.Column]">
-                      <option *ngFor="let DeliveryType of PackingType" [value]="DeliveryType.Code">
-                        {{ DeliveryType.Name }}
-                      </option>
-                    </select>
-                  </span>
-                  <span *ngSwitchCase="'btn'">
-                    <div class="fake-btn">
-                      <span class="hugeicons--delete-03"></span>
-                    </div>
-                  </span>
-                </ng-container>
-              </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="DeliverydisplayedColumns" class="mat-header-row"></tr>
-            <tr mat-row *matRowDef="let row; columns: DeliverydisplayedColumns" class="mat-row"></tr>
-          </table>
-        </div>
-      </div>
-    </div>
-    <mat-paginator #Deliverypaginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"
-      showFirstLastButtons></mat-paginator>
-    <div class="d-flex justify-content-end mt-2 ">
-      <button type="button" class="save me-2">Save & Create Gate Inward</button>
-      <button type="button" class="cancel">Cancel</button>
-    </div>
-  </mat-tab>
-</mat-tab-group>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ng-template #Shipment>
-  <div class="">
-    <div class="d-flex gap-4 align-items-center card-header">
-      <div>
-        <div class="card-title">Advanced Shipment Notes</div>
-        <div class="card-subtitle">
-          Keep track of vendors and their advance shipment notes.
-        </div>
-      </div>
-      <div class="searches d-flex justify-content-end ms-auto">
-        <span class="default-search"></span>
-        <input matInput matInput type="search" id="search" name="search" placeholder="Search..." class="search-input">
-      </div>
-    </div>
-
-    <div class="card-table">
-      <div class="poptable-container mt-4  mb-1">
-        <table mat-table [dataSource]="ShipmentdataSource">
-          <ng-container *ngFor="let colName of ShipmentdisplayedColumns" [matColumnDef]="colName">
-            <th mat-header-cell *matHeaderCellDef>
-              {{ colName }}
-            </th>
-            <td mat-cell *matCellDef="let element">
-              <div
-                *ngIf="colName !== 'Action' && colName !== 'QuantitySum' && colName !== 'GrandTotalNet' && colName !== 'NetAmount'">
-                {{ element[colName] }}
-              </div>
-              <div *ngIf="colName === 'Action'">
-                {{ element[colName] }}
-              </div>
-              <div *ngIf="colName === 'QuantitySum'" class="quantity" name="quantity">
-                {{ element[colName] }}
-              </div>
-              <div *ngIf="colName === 'GrandTotalNet' || colName === 'NetAmount'" class="price">
-                {{ element[colName] }}
-              </div>
-
-            </td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="ShipmentdisplayedColumns" class="mat-header-row"></tr>
-          <tr mat-row *matRowDef="let row; columns: ShipmentdisplayedColumns;" class="mat-row"></tr>
-        </table>
-      </div>
-    </div>
-
-    <mat-paginator [pageSize]="8" [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
-    <div class="d-flex justify-content-end align-items-center mt-3 pb-2 pe-2 ps-3">
-      <button class="ok  me-2">OK</button>
-      <button class="cancel" (click)="openDialog1('close', '')">Cancel</button>
+      <div class="col-lg-2">
+        <label>To Date</label>
+        <input type="date" class="form-control" name="filterDate" [(ngModel)]="Filter.todate" />
+      </div> -->
     </div>
 
   </div>
-</ng-template>
+  <div class="po-table">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-table">
+          <div class="table-responsive table-bar">
+
+            <input id="toggle2" class="row-toggle" type="checkbox" />
+            <table mat-table [dataSource]="dataSource" role="table"
+              class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull">
+              <ng-container *ngFor="let Rows of ListColumns let colIndex = index" [matColumnDef]="Rows.Column">
+                <th mat-header-cell *matHeaderCellDef class="edit-main-head sticky-thead" style="text-align: left;"
+                  [ngClass]="{'sticky-column': colIndex < 2}">
+                  <ng-container [ngSwitch]="Rows.Column">
+                    <span *ngSwitchCase="'checked'">
+                      <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </span>
+                    <span *ngSwitchDefault>{{ Rows.Description }}</span>
+                  </ng-container>
+                </th>
+                <!-- <td mat-cell *matCellDef=" let f = dataIndex;let element; "  -->
+                <td mat-cell *matCellDef=" let f = index ; let element; "
+                  [ngClass]="{'sticky-column': colIndex < 2}" style="text-align: left;" class="dubaimainroad">
+                  <ng-container [ngSwitch]="Rows.type">
+
+                    <div style="width: 100%;">
+                      <span *ngSwitchCase="'S.NO'">{{(f+1)+SerialNo}}</span>
+
+                      <label class="custom-checkbox" *ngSwitchCase="'CheckBox'" (click)="$event.stopPropagation()">
+                        <input type="checkbox" [(ngModel)]="element['Checked']"
+                          [disabled]="element['ProductionConfirmed']=='Y'" [readonly]="Rows.readonly">
+                        <span class="checkmark"></span>
+                      </label>
+                      <input *ngSwitchCase="'Text2'" type="number" [(ngModel)]="element[Rows.Column]" min="0"
+                       (change)="ReqQtyValidation(element)"
+                        [readonly]="Rows.readonly" class="mod-input1">
+
+                      <input *ngSwitchCase="'date1'" type="date" [(ngModel)]="element[Rows.Column]"
+                        style="height: 24px;" class="in-text" [style.width]="(Rows.length ) + 'px'">
+                    
+                        <mat-select *ngSwitchCase="'Transport'" id="TaxCode" type="select" style="width: 170px;"
+                        [(ngModel)]="element[Rows.Column]" 
+                      >
+                        <mat-option *ngFor="let data of Transport;let i = index " [value]="data['Code']">
+                          {{data["Name"]}}
+                        </mat-option>
+                      </mat-select>
+
+                      <span *ngSwitchDefault>{{element[Rows.Column]}}</span>
+                    </div>
+                  </ng-container>
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"
+                class="mat-mdc-header-row mdc-data-table__header-row cdk-header-row ng-star-inserted"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                class="mat-mdc-row mdc-data-table__row cdk-row ng-star-inserted"></tr>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-right p-t-15 p-b-10 p-10 w-100">
+      <button class="btn-success" (click)="AddANSRequest()" >Submit ASN Request</button>&nbsp;&nbsp;
+      <button class="btn-warning">Cancel</button>
+    </div>
+  </div>

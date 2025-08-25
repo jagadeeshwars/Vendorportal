@@ -1,0 +1,1489 @@
+<div class="breadcrumb-main">
+    <div class="bg-light-primary rounded   overflow-hidden ng-star-inserted bb-box">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="d-flex align-items-center overflow-hidden">
+                    <ul class="breadcrumb align-items-center">
+                        <li tabindex="0" class="breadcrumb-item ng-star-inserted">
+                            <a href="/dashboard/dashboard">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active f-s-14 ng-star-inserted">Document Upload</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4 text-right position-relative">
+                <div class="breadcrumb-icon">
+                    <img src="/assets/img/breadcrumb/ChatBc.png" alt="breadcrumb" width="165">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card mb-4">
+    <div class="card-header d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div style="height: 40px; display: flex; align-items: center;border-bottom: none;margin-top: -7px;">
+            <div>Document Upload</div>
+        </div>
+    </div>
+    <div class="card-body" style="height: calc(100vh -0px);overflow: auto;">
+        <div class="row align-items-center">
+            <div class="col-lg-3">
+                <div class="searches d-flex">
+                    <span class="default-search"></span>
+                    <input matInput type="search" id="search" name="search" placeholder="Search..."
+                        class="search-input w-100">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="d-flex">
+                    <button mat-raised-button color="primary" class="cloud-download">
+                        <!-- <mat-icon class="exportIcon">cloud_download</mat-icon>  -->
+                        Export
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-2">
+                <label>From Date</label>
+                <input type="date" class="form-control" name="filterDate" />
+            </div>
+            <div class="col-lg-2">
+                <label>To Date</label>
+                <input type="date" class="form-control" name="filterDate" />
+            </div>
+        </div>
+        <div id="chart">
+            <!-- <apx-chart [series]="Po.series" [chart]="Po.chart" [dataLabels]="Po.dataLabels"
+                [plotOptions]="Po.plotOptions" [responsive]="Po.responsive" [xaxis]="Po.xaxis" [legend]="Po.legend"
+                [fill]="Po.fill"></apx-chart> -->
+        </div>
+    </div>
+    <div class="po-table">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-table">
+                    <div class="table-responsive table-bar">
+                        <input id="toggle1" class="row-toggle" type="checkbox" />
+                        <input id="toggle2" class="row-toggle" type="checkbox" />
+                        <table
+                            class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull hundred-only">
+                            <thead>
+                                <tr>
+                                    <th
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        View</th>
+                                    <th
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        ASN Request</th>
+                                    <th
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        ASN</th>
+                                    <th
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Purchase Order</th>
+                                    <th
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Vendor</th>
+                                    <th
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Delivery Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="clickable">
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <label class="row-label" for="toggle1"> <span
+                                                class="tabler--eye"></span></label>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        ASN-REQ-01
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <span class="bg-light-warning">ASN01</span>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        PO-1 </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Vendor-01</td>
+
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        <span class="bg-light-primary">10.08.2025</span>
+                                    </td>
+                                    <!-- <td
+                    class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                    <span class="btn-success">Approved</span>
+                  </td> -->
+                                </tr>
+                                <tr class="expand row-1">
+                                    <td colspan="13"
+                                        class="mat-mdc-cell mdc-data-table__cell cdk-cell hov nes inner-td-bar">
+                                        <div class="ng-star-inserted">
+                                            <div class="po-table">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card-table">
+                                                            <div class="  table-bar">
+                                                                <input id="toggle1" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <input id="toggle2" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <table
+                                                                    class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull hundred-only">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Document Name</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Type</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Uploaded On</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                QR Code</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Action</th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="">
+
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                Invoice-001
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                <span
+                                                                                    class="bg-light-warning">PDF</span>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                PO-1 </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                    class="img qr-img2"><br>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <a href="../../asn/editdocumentupload/"
+                                                                                        class="bg-light-warning d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Edit</a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <!-- Hidden checkbox toggler -->
+                                                                                <input type="checkbox" id="modal-toggle"
+                                                                                    hidden />
+
+                                                                                <!-- The button (label for checkbox) -->
+                                                                                <label for="modal-toggle"
+                                                                                    class="btn bg-light-success"><span
+                                                                                        class="tabler--eye white-filter2 edit-icon"></span>
+                                                                                    View</label>
+
+                                                                                <!-- The modal -->
+                                                                                <div class="modal">
+                                                                                    <div class="modal__overlay"></div>
+                                                                                    <div class="modal__card">
+                                                                                        <div class="modal__header">
+                                                                                            <h2 class="modal__title">1
+                                                                                                Your QR Code</h2>
+                                                                                            <!-- Close button (uncheck checkbox) -->
+                                                                                            <label for="modal-toggle"
+                                                                                                class="modal__close">✕</label>
+                                                                                        </div>
+                                                                                        <hr>
+                                                                                        <div class="modal__body">
+                                                                                            <p>QR Code genaretd and sent
+                                                                                                to the registered email
+                                                                                                ID</p>
+                                                                                            <div class="popup-qr">
+                                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                                    class="img qr-img2">
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="text-right p-t-15 p-b-10 w-100 d-inline-flex justify-content-end">
+                                                                                                <button
+                                                                                                    class="btn-success d-flex"><span
+                                                                                                        class="hugeicons--file-upload cloud-download white-filter down2 text-white"></span>Save</button>&nbsp;&nbsp;
+                                                                                                <button
+                                                                                                    class="btn-warning d-flex"><span
+                                                                                                        class="mingcute--download-3-line cloud-download white-filter down2 text-white"></span>Download</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-secondary d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Download</button>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-primary d-flex border-0 b-r-3"><span
+                                                                                            class="carbon--close-outline white-filter2 down2"></span>
+                                                                                        Delete</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+<tr class="clickable">
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <label class="row-label" for="toggle1"> <span
+                                                class="tabler--eye"></span></label>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        ASN-REQ-01
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <span class="bg-light-warning">ASN01</span>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        PO-1 </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Vendor-01</td>
+
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        <span class="bg-light-primary">10.08.2025</span>
+                                    </td>
+                                    <!-- <td
+                    class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                    <span class="btn-success">Approved</span>
+                  </td> -->
+                                </tr>
+                                <tr class="expand row-1">
+                                    <td colspan="13"
+                                        class="mat-mdc-cell mdc-data-table__cell cdk-cell hov nes inner-td-bar">
+                                        <div class="ng-star-inserted">
+                                            <div class="po-table">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card-table">
+                                                            <div class="  table-bar">
+                                                                <input id="toggle1" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <input id="toggle2" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <table
+                                                                    class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull hundred-only">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Document Name</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Type</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Uploaded On</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                QR Code</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Action</th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="">
+
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                Invoice-001
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                <span
+                                                                                    class="bg-light-warning">PDF</span>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                PO-1 </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                    class="img qr-img2"><br>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <a href="../../asn/editdocumentupload/"
+                                                                                        class="bg-light-warning d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Edit</a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <!-- Hidden checkbox toggler -->
+                                                                                <input type="checkbox" id="modal-toggle"
+                                                                                    hidden />
+
+                                                                                <!-- The button (label for checkbox) -->
+                                                                                <label for="modal-toggle"
+                                                                                    class="btn bg-light-success"><span
+                                                                                        class="tabler--eye white-filter2 edit-icon"></span>
+                                                                                    View</label>
+
+                                                                                <!-- The modal -->
+                                                                                <div class="modal">
+                                                                                    <div class="modal__overlay"></div>
+                                                                                    <div class="modal__card">
+                                                                                        <div class="modal__header">
+                                                                                            <h2 class="modal__title">1
+                                                                                                Your QR Code</h2>
+                                                                                            <!-- Close button (uncheck checkbox) -->
+                                                                                            <label for="modal-toggle"
+                                                                                                class="modal__close">✕</label>
+                                                                                        </div>
+                                                                                        <hr>
+                                                                                        <div class="modal__body">
+                                                                                            <p>QR Code genaretd and sent
+                                                                                                to the registered email
+                                                                                                ID</p>
+                                                                                            <div class="popup-qr">
+                                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                                    class="img qr-img2">
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="text-right p-t-15 p-b-10 w-100 d-inline-flex justify-content-end">
+                                                                                                <button
+                                                                                                    class="btn-success d-flex"><span
+                                                                                                        class="hugeicons--file-upload cloud-download white-filter down2 text-white"></span>Save</button>&nbsp;&nbsp;
+                                                                                                <button
+                                                                                                    class="btn-warning d-flex"><span
+                                                                                                        class="mingcute--download-3-line cloud-download white-filter down2 text-white"></span>Download</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-secondary d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Download</button>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-primary d-flex border-0 b-r-3"><span
+                                                                                            class="carbon--close-outline white-filter2 down2"></span>
+                                                                                        Delete</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr><tr class="clickable">
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <label class="row-label" for="toggle1"> <span
+                                                class="tabler--eye"></span></label>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        ASN-REQ-01
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <span class="bg-light-warning">ASN01</span>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        PO-1 </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Vendor-01</td>
+
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        <span class="bg-light-primary">10.08.2025</span>
+                                    </td>
+                                    <!-- <td
+                    class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                    <span class="btn-success">Approved</span>
+                  </td> -->
+                                </tr>
+                                <tr class="expand row-1">
+                                    <td colspan="13"
+                                        class="mat-mdc-cell mdc-data-table__cell cdk-cell hov nes inner-td-bar">
+                                        <div class="ng-star-inserted">
+                                            <div class="po-table">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card-table">
+                                                            <div class="  table-bar">
+                                                                <input id="toggle1" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <input id="toggle2" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <table
+                                                                    class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull hundred-only">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Document Name</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Type</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Uploaded On</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                QR Code</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Action</th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="">
+
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                Invoice-001
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                <span
+                                                                                    class="bg-light-warning">PDF</span>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                PO-1 </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                    class="img qr-img2"><br>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <a href="../../asn/editdocumentupload/"
+                                                                                        class="bg-light-warning d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Edit</a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <!-- Hidden checkbox toggler -->
+                                                                                <input type="checkbox" id="modal-toggle"
+                                                                                    hidden />
+
+                                                                                <!-- The button (label for checkbox) -->
+                                                                                <label for="modal-toggle"
+                                                                                    class="btn bg-light-success"><span
+                                                                                        class="tabler--eye white-filter2 edit-icon"></span>
+                                                                                    View</label>
+
+                                                                                <!-- The modal -->
+                                                                                <div class="modal">
+                                                                                    <div class="modal__overlay"></div>
+                                                                                    <div class="modal__card">
+                                                                                        <div class="modal__header">
+                                                                                            <h2 class="modal__title">1
+                                                                                                Your QR Code</h2>
+                                                                                            <!-- Close button (uncheck checkbox) -->
+                                                                                            <label for="modal-toggle"
+                                                                                                class="modal__close">✕</label>
+                                                                                        </div>
+                                                                                        <hr>
+                                                                                        <div class="modal__body">
+                                                                                            <p>QR Code genaretd and sent
+                                                                                                to the registered email
+                                                                                                ID</p>
+                                                                                            <div class="popup-qr">
+                                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                                    class="img qr-img2">
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="text-right p-t-15 p-b-10 w-100 d-inline-flex justify-content-end">
+                                                                                                <button
+                                                                                                    class="btn-success d-flex"><span
+                                                                                                        class="hugeicons--file-upload cloud-download white-filter down2 text-white"></span>Save</button>&nbsp;&nbsp;
+                                                                                                <button
+                                                                                                    class="btn-warning d-flex"><span
+                                                                                                        class="mingcute--download-3-line cloud-download white-filter down2 text-white"></span>Download</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-secondary d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Download</button>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-primary d-flex border-0 b-r-3"><span
+                                                                                            class="carbon--close-outline white-filter2 down2"></span>
+                                                                                        Delete</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr><tr class="clickable">
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <label class="row-label" for="toggle1"> <span
+                                                class="tabler--eye"></span></label>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        ASN-REQ-01
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <span class="bg-light-warning">ASN01</span>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        PO-1 </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Vendor-01</td>
+
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        <span class="bg-light-primary">10.08.2025</span>
+                                    </td>
+                                    <!-- <td
+                    class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                    <span class="btn-success">Approved</span>
+                  </td> -->
+                                </tr>
+                                <tr class="expand row-1">
+                                    <td colspan="13"
+                                        class="mat-mdc-cell mdc-data-table__cell cdk-cell hov nes inner-td-bar">
+                                        <div class="ng-star-inserted">
+                                            <div class="po-table">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card-table">
+                                                            <div class="  table-bar">
+                                                                <input id="toggle1" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <input id="toggle2" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <table
+                                                                    class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull hundred-only">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Document Name</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Type</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Uploaded On</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                QR Code</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Action</th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="">
+
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                Invoice-001
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                <span
+                                                                                    class="bg-light-warning">PDF</span>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                PO-1 </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                    class="img qr-img2"><br>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <a href="../../asn/editdocumentupload/"
+                                                                                        class="bg-light-warning d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Edit</a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <!-- Hidden checkbox toggler -->
+                                                                                <input type="checkbox" id="modal-toggle"
+                                                                                    hidden />
+
+                                                                                <!-- The button (label for checkbox) -->
+                                                                                <label for="modal-toggle"
+                                                                                    class="btn bg-light-success"><span
+                                                                                        class="tabler--eye white-filter2 edit-icon"></span>
+                                                                                    View</label>
+
+                                                                                <!-- The modal -->
+                                                                                <div class="modal">
+                                                                                    <div class="modal__overlay"></div>
+                                                                                    <div class="modal__card">
+                                                                                        <div class="modal__header">
+                                                                                            <h2 class="modal__title">1
+                                                                                                Your QR Code</h2>
+                                                                                            <!-- Close button (uncheck checkbox) -->
+                                                                                            <label for="modal-toggle"
+                                                                                                class="modal__close">✕</label>
+                                                                                        </div>
+                                                                                        <hr>
+                                                                                        <div class="modal__body">
+                                                                                            <p>QR Code genaretd and sent
+                                                                                                to the registered email
+                                                                                                ID</p>
+                                                                                            <div class="popup-qr">
+                                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                                    class="img qr-img2">
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="text-right p-t-15 p-b-10 w-100 d-inline-flex justify-content-end">
+                                                                                                <button
+                                                                                                    class="btn-success d-flex"><span
+                                                                                                        class="hugeicons--file-upload cloud-download white-filter down2 text-white"></span>Save</button>&nbsp;&nbsp;
+                                                                                                <button
+                                                                                                    class="btn-warning d-flex"><span
+                                                                                                        class="mingcute--download-3-line cloud-download white-filter down2 text-white"></span>Download</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-secondary d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Download</button>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-primary d-flex border-0 b-r-3"><span
+                                                                                            class="carbon--close-outline white-filter2 down2"></span>
+                                                                                        Delete</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr><tr class="clickable">
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <label class="row-label" for="toggle1"> <span
+                                                class="tabler--eye"></span></label>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        ASN-REQ-01
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <span class="bg-light-warning">ASN01</span>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        PO-1 </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Vendor-01</td>
+
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        <span class="bg-light-primary">10.08.2025</span>
+                                    </td>
+                                    <!-- <td
+                    class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                    <span class="btn-success">Approved</span>
+                  </td> -->
+                                </tr>
+                                <tr class="expand row-1">
+                                    <td colspan="13"
+                                        class="mat-mdc-cell mdc-data-table__cell cdk-cell hov nes inner-td-bar">
+                                        <div class="ng-star-inserted">
+                                            <div class="po-table">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card-table">
+                                                            <div class="  table-bar">
+                                                                <input id="toggle1" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <input id="toggle2" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <table
+                                                                    class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull hundred-only">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Document Name</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Type</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Uploaded On</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                QR Code</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Action</th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="">
+
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                Invoice-001
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                <span
+                                                                                    class="bg-light-warning">PDF</span>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                PO-1 </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                    class="img qr-img2"><br>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <a href="../../asn/editdocumentupload/"
+                                                                                        class="bg-light-warning d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Edit</a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <!-- Hidden checkbox toggler -->
+                                                                                <input type="checkbox" id="modal-toggle"
+                                                                                    hidden />
+
+                                                                                <!-- The button (label for checkbox) -->
+                                                                                <label for="modal-toggle"
+                                                                                    class="btn bg-light-success"><span
+                                                                                        class="tabler--eye white-filter2 edit-icon"></span>
+                                                                                    View</label>
+
+                                                                                <!-- The modal -->
+                                                                                <div class="modal">
+                                                                                    <div class="modal__overlay"></div>
+                                                                                    <div class="modal__card">
+                                                                                        <div class="modal__header">
+                                                                                            <h2 class="modal__title">1
+                                                                                                Your QR Code</h2>
+                                                                                            <!-- Close button (uncheck checkbox) -->
+                                                                                            <label for="modal-toggle"
+                                                                                                class="modal__close">✕</label>
+                                                                                        </div>
+                                                                                        <hr>
+                                                                                        <div class="modal__body">
+                                                                                            <p>QR Code genaretd and sent
+                                                                                                to the registered email
+                                                                                                ID</p>
+                                                                                            <div class="popup-qr">
+                                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                                    class="img qr-img2">
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="text-right p-t-15 p-b-10 w-100 d-inline-flex justify-content-end">
+                                                                                                <button
+                                                                                                    class="btn-success d-flex"><span
+                                                                                                        class="hugeicons--file-upload cloud-download white-filter down2 text-white"></span>Save</button>&nbsp;&nbsp;
+                                                                                                <button
+                                                                                                    class="btn-warning d-flex"><span
+                                                                                                        class="mingcute--download-3-line cloud-download white-filter down2 text-white"></span>Download</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-secondary d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Download</button>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-primary d-flex border-0 b-r-3"><span
+                                                                                            class="carbon--close-outline white-filter2 down2"></span>
+                                                                                        Delete</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="clickable">
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <label class="row-label" for="toggle1"> <span
+                                                class="tabler--eye"></span></label>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        ASN-REQ-01
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <span class="bg-light-warning">ASN01</span>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        PO-1 </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Vendor-01</td>
+
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        <span class="bg-light-primary">10.08.2025</span>
+                                    </td>
+                                    <!-- <td
+                    class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                    <span class="btn-success">Approved</span>
+                  </td> -->
+                                </tr>
+                                <tr class="expand row-1">
+                                    <td colspan="13"
+                                        class="mat-mdc-cell mdc-data-table__cell cdk-cell hov nes inner-td-bar">
+                                        <div class="ng-star-inserted">
+                                            <div class="po-table">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card-table">
+                                                            <div class="  table-bar">
+                                                                <input id="toggle1" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <input id="toggle2" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <table
+                                                                    class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull hundred-only">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Document Name</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Type</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Uploaded On</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                QR Code</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Action</th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="">
+
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                Invoice-001
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                <span
+                                                                                    class="bg-light-warning">PDF</span>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                PO-1 </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                    class="img qr-img2"><br>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <a href="../../asn/editdocumentupload/"
+                                                                                        class="bg-light-warning d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Edit</a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <!-- Hidden checkbox toggler -->
+                                                                                <input type="checkbox" id="modal-toggle"
+                                                                                    hidden />
+
+                                                                                <!-- The button (label for checkbox) -->
+                                                                                <label for="modal-toggle"
+                                                                                    class="btn bg-light-success"><span
+                                                                                        class="tabler--eye white-filter2 edit-icon"></span>
+                                                                                    View</label>
+
+                                                                                <!-- The modal -->
+                                                                                <div class="modal">
+                                                                                    <div class="modal__overlay"></div>
+                                                                                    <div class="modal__card">
+                                                                                        <div class="modal__header">
+                                                                                            <h2 class="modal__title">1
+                                                                                                Your QR Code</h2>
+                                                                                            <!-- Close button (uncheck checkbox) -->
+                                                                                            <label for="modal-toggle"
+                                                                                                class="modal__close">✕</label>
+                                                                                        </div>
+                                                                                        <hr>
+                                                                                        <div class="modal__body">
+                                                                                            <p>QR Code genaretd and sent
+                                                                                                to the registered email
+                                                                                                ID</p>
+                                                                                            <div class="popup-qr">
+                                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                                    class="img qr-img2">
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="text-right p-t-15 p-b-10 w-100 d-inline-flex justify-content-end">
+                                                                                                <button
+                                                                                                    class="btn-success d-flex"><span
+                                                                                                        class="hugeicons--file-upload cloud-download white-filter down2 text-white"></span>Save</button>&nbsp;&nbsp;
+                                                                                                <button
+                                                                                                    class="btn-warning d-flex"><span
+                                                                                                        class="mingcute--download-3-line cloud-download white-filter down2 text-white"></span>Download</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-secondary d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Download</button>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-primary d-flex border-0 b-r-3"><span
+                                                                                            class="carbon--close-outline white-filter2 down2"></span>
+                                                                                        Delete</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr><tr class="clickable">
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <label class="row-label" for="toggle1"> <span
+                                                class="tabler--eye"></span></label>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        ASN-REQ-01
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <span class="bg-light-warning">ASN01</span>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        PO-1 </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Vendor-01</td>
+
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        <span class="bg-light-primary">10.08.2025</span>
+                                    </td>
+                                    <!-- <td
+                    class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                    <span class="btn-success">Approved</span>
+                  </td> -->
+                                </tr>
+                                <tr class="expand row-1">
+                                    <td colspan="13"
+                                        class="mat-mdc-cell mdc-data-table__cell cdk-cell hov nes inner-td-bar">
+                                        <div class="ng-star-inserted">
+                                            <div class="po-table">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card-table">
+                                                            <div class="  table-bar">
+                                                                <input id="toggle1" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <input id="toggle2" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <table
+                                                                    class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull hundred-only">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Document Name</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Type</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Uploaded On</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                QR Code</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Action</th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="">
+
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                Invoice-001
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                <span
+                                                                                    class="bg-light-warning">PDF</span>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                PO-1 </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                    class="img qr-img2"><br>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <a href="../../asn/editdocumentupload/"
+                                                                                        class="bg-light-warning d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Edit</a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <!-- Hidden checkbox toggler -->
+                                                                                <input type="checkbox" id="modal-toggle"
+                                                                                    hidden />
+
+                                                                                <!-- The button (label for checkbox) -->
+                                                                                <label for="modal-toggle"
+                                                                                    class="btn bg-light-success"><span
+                                                                                        class="tabler--eye white-filter2 edit-icon"></span>
+                                                                                    View</label>
+
+                                                                                <!-- The modal -->
+                                                                                <div class="modal">
+                                                                                    <div class="modal__overlay"></div>
+                                                                                    <div class="modal__card">
+                                                                                        <div class="modal__header">
+                                                                                            <h2 class="modal__title">1
+                                                                                                Your QR Code</h2>
+                                                                                            <!-- Close button (uncheck checkbox) -->
+                                                                                            <label for="modal-toggle"
+                                                                                                class="modal__close">✕</label>
+                                                                                        </div>
+                                                                                        <hr>
+                                                                                        <div class="modal__body">
+                                                                                            <p>QR Code genaretd and sent
+                                                                                                to the registered email
+                                                                                                ID</p>
+                                                                                            <div class="popup-qr">
+                                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                                    class="img qr-img2">
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="text-right p-t-15 p-b-10 w-100 d-inline-flex justify-content-end">
+                                                                                                <button
+                                                                                                    class="btn-success d-flex"><span
+                                                                                                        class="hugeicons--file-upload cloud-download white-filter down2 text-white"></span>Save</button>&nbsp;&nbsp;
+                                                                                                <button
+                                                                                                    class="btn-warning d-flex"><span
+                                                                                                        class="mingcute--download-3-line cloud-download white-filter down2 text-white"></span>Download</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-secondary d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Download</button>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-primary d-flex border-0 b-r-3"><span
+                                                                                            class="carbon--close-outline white-filter2 down2"></span>
+                                                                                        Delete</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr><tr class="clickable">
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <label class="row-label" for="toggle1"> <span
+                                                class="tabler--eye"></span></label>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        ASN-REQ-01
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                        <span class="bg-light-warning">ASN01</span>
+                                    </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        PO-1 </td>
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        Vendor-01</td>
+
+                                    <td
+                                        class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                        <span class="bg-light-primary">10.08.2025</span>
+                                    </td>
+                                    <!-- <td
+                    class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                    <span class="btn-success">Approved</span>
+                  </td> -->
+                                </tr>
+                                <tr class="expand row-1">
+                                    <td colspan="13"
+                                        class="mat-mdc-cell mdc-data-table__cell cdk-cell hov nes inner-td-bar">
+                                        <div class="ng-star-inserted">
+                                            <div class="po-table">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card-table">
+                                                            <div class="  table-bar">
+                                                                <input id="toggle1" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <input id="toggle2" class="row-toggle"
+                                                                    type="checkbox" />
+                                                                <table
+                                                                    class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull hundred-only">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Document Name</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Type</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Uploaded On</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                QR Code</th>
+                                                                            <th
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                Action</th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="">
+
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                Invoice-001
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted fix-ms">
+                                                                                <span
+                                                                                    class="bg-light-warning">PDF</span>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                PO-1 </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                    class="img qr-img2"><br>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <a href="../../asn/editdocumentupload/"
+                                                                                        class="bg-light-warning d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Edit</a>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <!-- Hidden checkbox toggler -->
+                                                                                <input type="checkbox" id="modal-toggle"
+                                                                                    hidden />
+
+                                                                                <!-- The button (label for checkbox) -->
+                                                                                <label for="modal-toggle"
+                                                                                    class="btn bg-light-success"><span
+                                                                                        class="tabler--eye white-filter2 edit-icon"></span>
+                                                                                    View</label>
+
+                                                                                <!-- The modal -->
+                                                                                <div class="modal">
+                                                                                    <div class="modal__overlay"></div>
+                                                                                    <div class="modal__card">
+                                                                                        <div class="modal__header">
+                                                                                            <h2 class="modal__title">1
+                                                                                                Your QR Code</h2>
+                                                                                            <!-- Close button (uncheck checkbox) -->
+                                                                                            <label for="modal-toggle"
+                                                                                                class="modal__close">✕</label>
+                                                                                        </div>
+                                                                                        <hr>
+                                                                                        <div class="modal__body">
+                                                                                            <p>QR Code genaretd and sent
+                                                                                                to the registered email
+                                                                                                ID</p>
+                                                                                            <div class="popup-qr">
+                                                                                                <img src="../../../assets/img/qr-code.jpg"
+                                                                                                    class="img qr-img2">
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="text-right p-t-15 p-b-10 w-100 d-inline-flex justify-content-end">
+                                                                                                <button
+                                                                                                    class="btn-success d-flex"><span
+                                                                                                        class="hugeicons--file-upload cloud-download white-filter down2 text-white"></span>Save</button>&nbsp;&nbsp;
+                                                                                                <button
+                                                                                                    class="btn-warning d-flex"><span
+                                                                                                        class="mingcute--download-3-line cloud-download white-filter down2 text-white"></span>Download</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-secondary d-flex border-0 b-r-3"><span
+                                                                                            class="mingcute--download-3-line cloud-download white-filter2 down2"></span>
+                                                                                        Download</button>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td
+                                                                                class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted">
+                                                                                <div class="d-flex">
+                                                                                    <button
+                                                                                        class="bg-light-primary d-flex border-0 b-r-3"><span
+                                                                                            class="carbon--close-outline white-filter2 down2"></span>
+                                                                                        Delete</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="text-right p-t-15 p-b-10 p-10 w-100">
+            <button class="btn-success">Save</button>&nbsp;&nbsp;
+            <button class="btn-warning">Cancel</button>
+        </div>
+
+
+    </div>
+</div>

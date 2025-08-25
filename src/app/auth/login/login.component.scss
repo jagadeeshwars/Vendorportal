@@ -13,15 +13,32 @@
     background-size: cover;
     background-position: center;
     width: 100%;
+    justify-content: center;
 }
-
+.otp-bar { padding: 0 0 25px; } 
+button.btn-Otp {
+    background: #333; color: #fff; border: 0; padding: 5px 10px; border-radius: 3px; font-size: 13px; display: inline-block;
+}
+button.btn-Otp {
+    background: #f7f7f7;
+    color: #333;
+    border: 0;
+    padding: 0px 18px;
+    border-radius: 25px;
+    font-size: 13px;
+    display: inline-block;
+    min-height: 10px;
+}
+.p-l-10 { padding-left: 10px;}
 label {
     color: #344054;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
     font-weight: 500;
 }
-
+.mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    height: 0 !important;
+}
 .form-control .form-select {
     border: 1px solid #D0D5DD;
     // width: 233px;
@@ -144,16 +161,16 @@ label {
 .submit {
     display: inline-block;
     line-height: normal;
-    padding: 0.2rem 2rem;
+    padding: 10px 25px;
     color: #fff;
     border: 1px solid #fff;
-    border-radius: 1vh;
+    border-radius: 2px;
     font-family: 'Inter';
-    width: 259px;
-    font-size: 14px;
-    height: 41px;
+    width: auto;
+    font-size: 15px;
+    height: auto;
     flex-shrink: 0;
-    border-radius: 8px;
+    border-radius: 3px;
     background: #EC2528;
 }
 
@@ -188,7 +205,6 @@ label {
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-    -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
 
@@ -269,7 +285,7 @@ b {
 }
 
 .clientlogo {
-    width: 150px;
+    width: 250px;
     margin: auto;
     margin-top: 4rem;
 }
@@ -301,11 +317,22 @@ b {
 }
 
 .footer {
-    padding-right: 20rem;
+    padding-right: 0rem;
     padding-top: 2rem;
 }
-
-
+.mat-mdc-form-field-infix { 
+    height: 43px;
+}
+input#UserLoginCode {
+    height: 0;
+}
+input#otp { height: 19px;}
+.mat-mdc-text-field-wrapper.mdc-text-field.mdc-text-field--outlined {
+    height: 45px !important;
+}
+.compmaster mat-form-field > div > div { 
+    height: 43px;
+}
 @media (max-width : 1024px) {
     .animation-container {
         max-width: 470px;
@@ -503,6 +530,10 @@ b {
     }
 }
 
+.otp-valid{
+    color:#3E9B4F;
+}
+
 @media (max-width: 600px) {
     .animation-container{
         max-width: 507px;
@@ -510,6 +541,33 @@ b {
         margin-top: 16px;
         margin-right: 64px;
     }
+}
+/* Apply only to your custom field */
+.custom-input .mat-form-field-outline {
+  border-radius: 10px;              /* Rounded corners */
+  border-width: 1.5px;              /* Slightly bold outline */
+}
+
+.custom-input .mat-input-element {
+  height: 34px;                     /* Comfortable height */
+  padding: 0 12px;                  /* Balanced spacing */
+  font-size: 14px;                  /* Clean text */
+}
+
+.custom-input.mat-form-field {
+  margin-bottom: 15px;              /* Proper spacing between fields */
+}
+
+/* Add a subtle focus effect */
+.custom-input.mat-form-field.mat-focused .mat-form-field-outline-thick {
+  border-color: #1976d2;            /* Material Blue focus */
+  box-shadow: 0 0 6px rgba(25, 118, 210, 0.3);
+}
+
+/* Placeholder + Label styling */
+.custom-input .mat-form-field-label {
+  font-weight: 500;
+  color: #555;
 }
 @media (max-width: 750px) {
     .animation-container[_ngcontent-ng-c403059059] {

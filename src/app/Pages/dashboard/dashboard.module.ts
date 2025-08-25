@@ -5,17 +5,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    data: { breadcrumb: 'Reports' }, 
-    children: [
-      {
+     
         path: 'dashboard',
         component: DashboardComponent,
         data: { breadcrumb: 'Po Dashboard' }  
-      },
-      
-      
-    ]
+        
   }
 ];
 

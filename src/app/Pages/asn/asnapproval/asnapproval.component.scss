@@ -1,4 +1,11 @@
 @import url('../asn.scss');
+.table-responsive table.tmfull1,
+.table-responsive table {
+    min-width: 1200px !important;
+    overflow: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
 
 .open {
     border-radius: 30px;
@@ -79,18 +86,31 @@ background-color: rgba(239, 246, 255, 1);
     display: inline-block;
 }
 
-.action-buttons {
-    display: flex;
-    align-items: center;
-    gap: 0px; 
-  }
   
-  .eye {
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid transparent;
-  }
+
+
+  .status-approved {
+  background-color: #28a745; /* green */
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.status-approved:hover {
+  background-color: #218838; /* darker green */
+}
+
+.status-other {
+  background-color: #ff9800; /* warm orange */
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.status-other:hover {
+  background-color: #e65100; /* darker orange */
+}
   
 

@@ -7,12 +7,22 @@
   height: 100%;
   transition: width 0.3s ease;
   background: linear-gradient(180deg, #182848 12.17%, #4b6cb7 100%);
+  background: linear-gradient(90deg, #001138 100%, #001E66 0%);
+    border-top: 5px solid rgb(140, 198, 60);
 }
 .navbar {
-  height: 50px;
+  // height: 50px;
   width: 100%;
-  border-bottom: 1px solid #f1f1f4;
+  // border-bottom: 1px solid #f1f1f4;
   background: #ffffff;
+  background: linear-gradient(90deg, #001138 0%, #001E66 100%);
+  border-top: 5px solid rgb(140, 198, 60);
+  padding: 20px 10px;
+    align-items: center;
+    justify-content: center;
+}
+.navbar .bg-dark { 
+  background: transparent !important;
 }
 .wrap {
   width: calc(100% - 240px);
@@ -57,7 +67,7 @@
   padding: 12px;
   height: calc(100vh - 50px);
   width: 100%;
-  overflow-y: auto;
+  overflow-y: auto;background: #f2f6fa;
 }
 .rote-pg::-webkit-scrollbar {
   display: none;

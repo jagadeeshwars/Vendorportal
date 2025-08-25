@@ -115,3 +115,52 @@ background-color: rgba(239, 246, 255, 1);
     box-shadow: none !important;
   }
   
+
+    .status-approved {
+  background-color: #28a745; /* green */
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.status-approved:hover {
+  background-color: #218838; /* darker green */
+}
+
+.status-other {
+  background-color: #ff9800; /* warm orange */
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.status-other:hover {
+  background-color: #e65100; /* darker orange */
+}
+
+  .status-partial {
+  background-color: #ef2b2b; /* green */
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.status-partial:hover {
+  background-color: #ef0909; /* darker green */
+}
+
+.po-qty-cell {
+  background-color: #84add8; /* light blue */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.po-qty-cell:hover {
+  background-color: #71b7f9; /* brighter highlight */
+  transform: scale(1.05);    /* small zoom effect */
+}

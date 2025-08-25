@@ -1,6 +1,7 @@
 .sidebar-content {
   padding: 12px;
   position: relative;
+  background: linear-gradient(90deg, #001138 100%, #001E66 0%);
 }
 .menu-flow {
   height: calc(100vh - 89px);
@@ -20,7 +21,8 @@
     margin-left: 32px;
   }
   .text-logo {
-    height: 35px;
+    height: auto;
+    width: 95%;
   }
 }
 .btn-b {
@@ -35,7 +37,7 @@
 }
 
 .heading {
-  font-family: Inter;
+  
   font-weight: 500;
   font-size: 12px;
   line-height: 20px;
@@ -47,13 +49,13 @@
 .main-menu {
   display: flex;
   gap: 8px;
-  align-items: center;
+  align-items: normal;
   padding: 8px;
   cursor: pointer;
-  font-family: Inter;
+  
   font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 15px;
+  line-height: 21px;
   letter-spacing: 0%;
   color: #ffffff;
 }
@@ -63,7 +65,7 @@
   justify-content: space-between;
   padding: 8px;
   cursor: pointer;
-  font-family: Inter;
+  
   font-weight: 400;
   font-size: 12px;
   line-height: 20px;
@@ -79,10 +81,10 @@
   padding: 6px 2px;
   // padding-left: 20px;
   cursor: pointer;
-  font-family: Inter;
+  
   font-weight: 400;
-  font-size: 11px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 26px;
   letter-spacing: 0%;
   color: #ffffff;
   border-radius: 6px;

@@ -1,0 +1,106 @@
+<div class="breadcrumb-main">
+    <div class="bg-light-primary rounded   overflow-hidden ng-star-inserted bb-box">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="d-flex align-items-center overflow-hidden">
+                    <ul class="breadcrumb align-items-center">
+                        <!-- <li tabindex="0" class="breadcrumb-item ng-star-inserted">
+                            <a href="/dashboard/dashboard">Dashboard</a>
+                        </li> -->
+                        <li class="breadcrumb-item active f-s-14 ng-star-inserted">PO</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4 text-right position-relative">
+                <div class="breadcrumb-icon">
+                    <img src="/assets/img/breadcrumb/ChatBc.png" alt="breadcrumb" width="165">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div style="height: 40px; display: flex; align-items: center;border-bottom: none;margin-top: -7px;">
+            <div>PO Overview</div>
+        </div>
+    </div>
+    <div class="card-body" style="height: calc(100vh -0px);overflow: auto;">
+        <div class="row align-items-center">
+            <div class="col-lg-3">
+                <div class="searches d-flex">
+                    <span class="default-search"></span>
+                    <input matInput type="search" id="search" name="search" placeholder="Search..."
+                        (keyup)="applyFilter($event)" class="search-input w-100">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="d-flex">
+                    <button mat-raised-button color="primary" (click)="exportexcel()" class="cloud-download">
+                        <mat-icon class="exportIcon">cloud_download</mat-icon>
+                        Export
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-2">
+                <label>From Date</label>
+                <input type="date" class="form-control" name="filterDate" [(ngModel)]="Filter.fromdate"
+                    (change)="getPoOverViewList()" />
+            </div>
+            <div class="col-lg-2">
+                <label>To Date</label>
+                <input type="date" class="form-control" name="filterDate" [(ngModel)]="Filter.todate"
+                    (change)="getPoOverViewList()" />
+            </div>
+        </div>
+        <div id="chart">
+            <!-- <apx-chart [series]="Po.series" [chart]="Po.chart" [dataLabels]="Po.dataLabels"
+                [plotOptions]="Po.plotOptions" [responsive]="Po.responsive" [xaxis]="Po.xaxis" [legend]="Po.legend"
+                [fill]="Po.fill"></apx-chart> -->
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-table">
+                <div class="table-responsive">
+                    <table mat-table [dataSource]="dataSource" role="table"
+                        class="mat-mdc-table mdc-data-table__table cdk-table w-100 table-main-all tmfull">
+                        <ng-container *ngFor="let colName of ListColumns" [matColumnDef]="colName">
+                            <th class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-assigned mat-column-assigned ng-star-inserted"
+                                mat-header-cell *matHeaderCellDef>{{colName}}</th>
+                            <td mat-cell *matCellDef="let element"
+                                class="mat-mdc-cell mdc-data-table__cell cdk-cell f-s-14 cdk-column-name mat-column-name ng-star-inserted">
+                                <!-- {{element[colName]}} -->
+                                <button *ngIf="colName === 'Confirmation Status'" [ngClass]="{
+      'bg-orange text-white': element['Confirmation Status'] === 'Open',
+      'bg-green text-white': element['Confirmation Status'] !== 'Open'
+    }" class="rounded px-2 py-1 f-w-600 f-s-12 border-0">
+                                    {{ element[colName] }}
+                                </button>
+                                <button *ngIf="colName === 'Status'" [ngClass]="{
+        'bg-light-blue': element['Status'] === 'Partial',
+        'bg-orange': element['Status'] !== 'Partial'
+      }" class="rounded px-2 py-1 f-w-600 f-s-12 border-0">
+                                    {{ element['Status'] }}
+                                </button>
+                                <span *ngIf="colName !== 'Confirmation Status' && colName !== 'Status' " [ngClass]="{
+    'bg-light-primary rounded f-w-600 f-s-12 ng-star-inserted': colName === 'PO Line Item',
+    'highlight-pending': colName === 'Order Status' && element['Order Status'] === 'In Progress',
+    'highlight-completed': colName === 'Order Status' && element['Order Status'] !== 'In Progress',
+    'highlight-empty': (colName === 'ASN Qty' || colName === 'Pending') && !element[colName],
+}">
+                                    {{ element[colName] }}
+                                </span>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="ListColumns; sticky: true"
+                            class="mat-mdc-header-row mdc-data-table__header-row cdk-header-row ng-star-inserted"></tr>
+                        <tr mat-row *matRowDef="let row; columns: ListColumns;"
+                            class="mat-mdc-row mdc-data-table__row cdk-row ng-star-inserted"></tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
